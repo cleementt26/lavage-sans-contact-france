@@ -109,6 +109,12 @@ h1 em { color: var(--blue); font-style: normal; }
 .range-wrap { display: flex; justify-content: space-between; align-items: center; margin: 17px 0 8px; font-size: 11px; color: var(--muted); }
 .range-wrap output { color: var(--ink); font-weight: 800; }
 input[type="range"] { width: 100%; accent-color: var(--blue); }
+.distance-presets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 11px; }
+.distance-presets button { min-height: 32px; border: 1px solid var(--line); border-radius: 9px; background: #f7f9fb; color: var(--muted); font-size: 10px; font-weight: 800; }
+.distance-presets button:hover:not(:disabled) { border-color: #aabbd3; color: var(--ink); }
+.distance-presets button.active { border-color: var(--blue); background: #eaf3ff; color: var(--blue); box-shadow: 0 0 0 2px rgba(17,103,232,.08); }
+.distance-presets button:disabled { opacity: .48; cursor: not-allowed; }
+.route-nearby { display: block; margin-top: 8px; padding: 8px 10px; border-radius: 9px; background: #edf5ff; color: #0754bd; font-weight: 750; }
 
 .results-section { margin-top: 22px; }
 .count { background: #edf4ff; color: var(--blue); border-radius: 20px; padding: 4px 8px; letter-spacing: 0; }
@@ -189,6 +195,7 @@ dialog a { color: var(--blue); font-weight: 750; font-size: 13px; }
   .intro { display: none; }
   .locate-primary { min-height: 48px; border-radius: 13px; }
   .route-card, .filter-card { padding: 14px; margin-top: 12px; border-radius: 14px; }
+  .distance-presets button { min-height: 38px; font-size: 11px; }
   .route-field { height: 48px; }
   .route-field input { font-size: 16px; }
   .route-button { min-height: 48px; font-size: 14px; }

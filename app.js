@@ -114,6 +114,27 @@ function renderStations() {
   } else if (state.selectedStationId) {
     clearStationSelection();
   }
+  updateRouteNearbySummary();
+}
+
+function updateRouteNearbySummary() {
+  const nearby = $('#routeNearby');
+  if (!nearby) return;
+  if (!routeFilter.checked) {
+    nearby.textContent = 'Filtre de proximité désactivé';
+    return;
+  }
+  const total = state.visibleStations.length;
+  nearby.textContent = `${total} station${total > 1 ? 's' : ''} à moins de ${distanceRange.value} km du tracé`;
+}
+
+function setRouteDistance(value) {
+  distanceRange.value = String(value);
+  $('#distanceOutput').textContent = `${value} km`;
+  document.querySelectorAll('.distance-presets button').forEach((button) => {
+    button.classList.toggle('active', Number(button.dataset.distance) === Number(value));
+  });
+  renderStations();
 }
 
 function selectStation(id, scrollToItem = true) {
@@ -263,9 +284,10 @@ async function calculateRoute(event) {
     map.fitBounds(state.routeLine.getBounds(), { padding: [35, 35] });
     routeFilter.disabled = false;
     distanceRange.disabled = false;
+    document.querySelectorAll('.distance-presets button').forEach((preset) => { preset.disabled = false; });
     routeFilter.checked = true;
     $('#clearRoute').hidden = false;
-    routeSummary.innerHTML = `<strong>${distanceLabel(best.distance / 1000)}</strong> · ${Math.round(best.duration / 60)} min<br>${escapeHtml(startQuery)} → ${escapeHtml(endQuery)}`;
+    routeSummary.innerHTML = `<strong>${distanceLabel(best.distance / 1000)} · ${Math.round(best.duration / 60)} min</strong><br>${escapeHtml(startQuery)} → ${escapeHtml(endQuery)}<span class="route-nearby" id="routeNearby"></span>`;
     renderStations();
     if (window.innerWidth <= 820) {
       closeMobilePanel();
@@ -281,6 +303,7 @@ function clearRoute() {
   if (state.routeLine) state.routeLine.remove();
   state.route = null; state.routeLine = null;
   routeFilter.checked = false; routeFilter.disabled = true; distanceRange.disabled = true;
+  document.querySelectorAll('.distance-presets button').forEach((preset) => { preset.disabled = true; });
   routeSummary.textContent = ''; $('#clearRoute').hidden = true;
   renderStations();
   if (state.stations.length) map.setView(FRANCE_CENTER, 6);
@@ -291,7 +314,10 @@ $('#locatePrimary').addEventListener('click', locateUser);
 $('#routeForm').addEventListener('submit', calculateRoute);
 $('#clearRoute').addEventListener('click', clearRoute);
 routeFilter.addEventListener('change', renderStations);
-distanceRange.addEventListener('input', () => { $('#distanceOutput').textContent = `${distanceRange.value} km`; renderStations(); });
+distanceRange.addEventListener('input', () => setRouteDistance(distanceRange.value));
+document.querySelectorAll('.distance-presets button').forEach((button) => {
+  button.addEventListener('click', () => setRouteDistance(button.dataset.distance));
+});
 $('.brand').addEventListener('click', (event) => { event.preventDefault(); map.setView(FRANCE_CENTER, 6); });
 $('#aboutButton').addEventListener('click', () => $('#aboutDialog').showModal());
 $('#closeDialog').addEventListener('click', () => $('#aboutDialog').close());
