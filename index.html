@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Carte indépendante des stations de lavage automobile automatique 100 % sans contact en France.">
+  <title>Sans Contact — stations de lavage en France</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://tile.openstreetmap.org">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJb+8eoEpsnXxVJzZ1nYmxL7d9w=" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Retour à la carte de France">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28"><path d="M14 2.5C10.2 7.4 6.5 11.8 6.5 17a7.5 7.5 0 0 0 15 0c0-5.2-3.7-9.6-7.5-14.5Z"/><path d="M10.5 17.5c.5 2.2 1.8 3.4 4 3.7"/></svg>
+        </span>
+        <span><strong>Sans Contact</strong><small>Lavage auto sans brosses</small></span>
+      </a>
+      <div class="header-actions">
+        <span class="verified"><i></i> Données vérifiées · 21 sept. 2026</span>
+        <button class="icon-button" id="locateButton" type="button" title="Me localiser" aria-label="Me localiser">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel" aria-label="Recherche et itinéraire">
+        <div class="panel-scroll">
+          <section class="intro">
+            <span class="eyebrow">Carte indépendante</span>
+            <h1>Trouvez un lavage<br><em>vraiment</em> sans contact.</h1>
+            <p>Des robots haute pression automatiques, sans rouleaux ni brosses.</p>
+          </section>
+
+          <button class="locate-primary" id="locatePrimary" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            Autour de moi
+          </button>
+
+          <section class="route-card">
+            <div class="section-heading">
+              <span>Planifier un trajet</span>
+              <button id="clearRoute" type="button" class="text-button" hidden>Effacer</button>
+            </div>
+            <form id="routeForm">
+              <label class="route-field">
+                <span class="route-dot start"></span>
+                <input id="startInput" autocomplete="street-address" required placeholder="Adresse de départ">
+              </label>
+              <div class="route-line"></div>
+              <label class="route-field">
+                <span class="route-dot end"></span>
+                <input id="endInput" autocomplete="street-address" required placeholder="Adresse d’arrivée">
+              </label>
+              <button class="route-button" type="submit">
+                Calculer l’itinéraire
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </form>
+            <div id="routeSummary" class="route-summary" aria-live="polite"></div>
+          </section>
+
+          <section class="filter-card">
+            <div class="toggle-row">
+              <div>
+                <strong>Stations sur ma route</strong>
+                <small>Filtrer près du tracé</small>
+              </div>
+              <label class="switch">
+                <input id="routeFilter" type="checkbox" disabled>
+                <span></span>
+              </label>
+            </div>
+            <label class="range-wrap" for="distanceRange">
+              <span>Distance maximale au trajet</span>
+              <output id="distanceOutput">5 km</output>
+            </label>
+            <input id="distanceRange" type="range" min="1" max="20" step="1" value="5" disabled>
+          </section>
+
+          <section class="results-section">
+            <div class="section-heading">
+              <span>Stations</span>
+              <span class="count" id="stationCount">—</span>
+            </div>
+            <div id="stationList" class="station-list" aria-live="polite"></div>
+          </section>
+        </div>
+        <footer>
+          <span>© OpenStreetMap</span>
+          <button id="aboutButton" class="text-button" type="button">Méthode & sources</button>
+        </footer>
+      </aside>
+
+      <section class="map-wrap" aria-label="Carte des stations">
+        <div id="map"></div>
+        <div class="map-status" id="mapStatus" role="status">Chargement des stations…</div>
+        <button class="mobile-panel-button" id="mobilePanelButton" type="button">
+          <span id="mobileCount">Stations</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="aboutDialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Fermer">×</button>
+    <span class="eyebrow">Transparence</span>
+    <h2>Méthode & limites</h2>
+    <p>La carte recense uniquement des équipements automatiques dont le fonctionnement sans contact a pu être confirmé publiquement. Une station peut aussi proposer, à côté, des rouleaux ou des pistes manuelles.</p>
+    <p>Il n’existe pas de registre national officiel de cette technologie : la liste est donc une base vérifiée, pas une garantie d’exhaustivité absolue. Avant un long détour, vérifiez l’accès et la disponibilité auprès de l’exploitant.</p>
+    <p>Le filtre mesure la distance géométrique entre la station et le tracé routier. Il ne calcule pas le détour routier aller-retour réel.</p>
+    <a href="SOURCES.md" target="_blank" rel="noopener">Consulter le registre des sources →</a>
+  </dialog>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
