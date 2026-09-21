@@ -138,17 +138,60 @@ async function loadStations() {
   }
 }
 
+function applyUserPosition(coords, cached = false) {
+  state.userPosition = [coords.latitude, coords.longitude];
+  if (state.userMarker) state.userMarker.remove();
+  state.userMarker = L.marker(state.userPosition, { icon: userIcon, zIndexOffset: 1000 })
+    .addTo(map)
+    .bindPopup(cached ? 'Votre dernière position connue' : 'Votre position');
+  map.setView(state.userPosition, 11);
+  renderStations();
+  if (window.innerWidth <= 820) closeMobilePanel();
+  showStatus(cached ? 'Dernière position affichée · actualisation…' : 'Position trouvée');
+}
+
+function setLocationBusy(busy) {
+  state.locating = busy;
+  [$('#locateButton'), $('#locatePrimary')].forEach((button) => {
+    button.disabled = busy;
+    button.setAttribute('aria-busy', String(busy));
+  });
+}
+
 function locateUser() {
   if (!navigator.geolocation) return showStatus('La géolocalisation n’est pas disponible.');
-  showStatus('Recherche de votre position…', 0);
+  if (state.locating) return;
+
+  let cachedPosition = null;
+  try {
+    const saved = JSON.parse(localStorage.getItem('sans-contact-position'));
+    if (saved && Date.now() - saved.timestamp < 600000) {
+      cachedPosition = saved;
+      applyUserPosition(saved, true);
+    }
+  } catch { localStorage.removeItem('sans-contact-position'); }
+
+  if (!cachedPosition) showStatus('Localisation rapide…', 0);
+  setLocationBusy(true);
+
   navigator.geolocation.getCurrentPosition(({ coords }) => {
-    state.userPosition = [coords.latitude, coords.longitude];
-    if (state.userMarker) state.userMarker.remove();
-    state.userMarker = L.marker(state.userPosition, { icon: userIcon, zIndexOffset: 1000 }).addTo(map).bindPopup('Votre position');
-    map.setView(state.userPosition, 11);
-    renderStations();
-    showStatus('Position trouvée');
-  }, () => showStatus('Position refusée ou indisponible.'), { enableHighAccuracy: true, timeout: 10000, maximumAge: 120000 });
+    const position = {
+      latitude: coords.latitude,
+      longitude: coords.longitude,
+      accuracy: coords.accuracy,
+      timestamp: Date.now()
+    };
+    localStorage.setItem('sans-contact-position', JSON.stringify(position));
+    applyUserPosition(position);
+    setLocationBusy(false);
+  }, (error) => {
+    setLocationBusy(false);
+    if (cachedPosition) return showStatus('Dernière position utilisée');
+    const message = error.code === 1
+      ? 'Autorisez la localisation pour afficher les stations proches.'
+      : 'Position indisponible. Réessayez près d’une fenêtre.';
+    showStatus(message, 4200);
+  }, { enableHighAccuracy: false, timeout: 6000, maximumAge: 600000 });
 }
 
 async function geocode(query) {
