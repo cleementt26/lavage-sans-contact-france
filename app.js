@@ -9,7 +9,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const state = {
   stations: [], visibleStations: [], markers: new Map(),
-  userPosition: null, userMarker: null, route: null, routeLine: null
+  userPosition: null, userMarker: null, route: null, routeLine: null,
+  selectedStationId: null, locating: false
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -19,6 +20,7 @@ const routeFilter = $('#routeFilter');
 const distanceRange = $('#distanceRange');
 const routeSummary = $('#routeSummary');
 const statusBox = $('#mapStatus');
+const selectionCard = $('#selectionCard');
 
 const markerIcon = L.divIcon({ className: '', html: '<div class="station-marker"></div>', iconSize: [34, 34], iconAnchor: [10, 32], popupAnchor: [7, -29] });
 const userIcon = L.divIcon({ className: '', html: '<div class="user-marker"></div>', iconSize: [17, 17], iconAnchor: [8, 8] });
@@ -107,13 +109,47 @@ function renderStations() {
     </button>`).join('') : '<div class="empty-state">Aucune station dans ce corridor.<br>Élargissez la distance maximale.</div>';
 
   stationList.querySelectorAll('.station-item').forEach((item) => item.addEventListener('click', () => focusStation(Number(item.dataset.id))));
+  if (state.selectedStationId && stations.some((station) => station.id === state.selectedStationId)) {
+    selectStation(state.selectedStationId, false);
+  } else if (state.selectedStationId) {
+    clearStationSelection();
+  }
+}
+
+function selectStation(id, scrollToItem = true) {
+  const station = state.stations.find((item) => item.id === id);
+  if (!station) return;
+  state.selectedStationId = id;
+  for (const [markerId, marker] of state.markers) {
+    marker.getElement()?.classList.toggle('is-selected', markerId === id);
+  }
+  document.querySelectorAll('.station-item').forEach((item) => item.classList.toggle('active', Number(item.dataset.id) === id));
+  const selectedItem = stationList.querySelector(`[data-id="${id}"]`);
+  if (scrollToItem && selectedItem) selectedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  const distance = stationDistance(station);
+  $('#selectionName').textContent = station.nom;
+  $('#selectionAddress').textContent = station.adresse;
+  $('#selectionDistance').textContent = Number.isFinite(distance)
+    ? `${distanceLabel(distance)}${routeFilter.checked ? ' du trajet' : ''}`
+    : '100 % sans contact';
+  $('#selectionDirections').href = `https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=;${station.latitude},${station.longitude}`;
+  selectionCard.hidden = false;
+}
+
+function clearStationSelection() {
+  state.selectedStationId = null;
+  for (const marker of state.markers.values()) marker.getElement()?.classList.remove('is-selected');
+  document.querySelectorAll('.station-item').forEach((item) => item.classList.remove('active'));
+  selectionCard.hidden = true;
+  map.closePopup();
 }
 
 function focusStation(id) {
   const station = state.stations.find((item) => item.id === id);
   const marker = state.markers.get(id);
   if (!station || !marker) return;
-  document.querySelectorAll('.station-item').forEach((item) => item.classList.toggle('active', Number(item.dataset.id) === id));
+  selectStation(id);
   map.flyTo([station.latitude, station.longitude], Math.max(map.getZoom(), 14), { duration: .8 });
   marker.setPopupContent(popupHtml(station)).openPopup();
   if (window.innerWidth <= 820) closeMobilePanel();
@@ -126,7 +162,7 @@ async function loadStations() {
     state.stations = await response.json();
     state.stations.forEach((station) => {
       const marker = L.marker([station.latitude, station.longitude], { icon: markerIcon }).bindPopup(() => popupHtml(station));
-      marker.on('click', () => document.querySelectorAll('.station-item').forEach((item) => item.classList.toggle('active', Number(item.dataset.id) === station.id)));
+      marker.on('click', () => selectStation(station.id));
       marker.addTo(map);
       state.markers.set(station.id, marker);
     });
@@ -259,6 +295,7 @@ distanceRange.addEventListener('input', () => { $('#distanceOutput').textContent
 $('.brand').addEventListener('click', (event) => { event.preventDefault(); map.setView(FRANCE_CENTER, 6); });
 $('#aboutButton').addEventListener('click', () => $('#aboutDialog').showModal());
 $('#closeDialog').addEventListener('click', () => $('#aboutDialog').close());
+$('#selectionClose').addEventListener('click', clearStationSelection);
 const mobilePanel = $('.panel');
 const mobilePanelButton = $('#mobilePanelButton');
 const panelBackdrop = $('#panelBackdrop');

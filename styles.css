@@ -130,8 +130,10 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
 .leaflet-control-zoom { border: 0 !important; box-shadow: var(--shadow) !important; }
 .leaflet-control-zoom a { border: 0 !important; color: var(--ink) !important; }
 .leaflet-control-attribution { font-size: 9px; }
-.station-marker { width: 34px; height: 34px; border: 3px solid white; background: var(--blue); border-radius: 11px 11px 11px 3px; transform: rotate(-45deg); box-shadow: 0 7px 18px rgba(9,65,146,.35); display: grid; place-items: center; }
+.station-marker { width: 34px; height: 34px; border: 3px solid white; background: var(--blue); border-radius: 11px 11px 11px 3px; transform: rotate(-45deg); box-shadow: 0 7px 18px rgba(9,65,146,.35); display: grid; place-items: center; transition: background .18s, box-shadow .18s, transform .18s; }
 .station-marker::after { content: ""; width: 8px; height: 8px; border: 2px solid white; border-radius: 50%; }
+.leaflet-marker-icon.is-selected { z-index: 10000 !important; }
+.leaflet-marker-icon.is-selected .station-marker { background: #ff604a; transform: rotate(-45deg) scale(1.18); box-shadow: 0 0 0 7px rgba(255,96,74,.2), 0 10px 26px rgba(112,34,21,.38); }
 .user-marker { width: 17px; height: 17px; background: #0d78f2; border: 3px solid white; box-shadow: 0 0 0 6px rgba(13,120,242,.2); border-radius: 50%; }
 .map-status { position: absolute; z-index: 600; top: 18px; left: 50%; transform: translateX(-50%); background: rgba(7,17,31,.9); color: white; padding: 9px 13px; border-radius: 8px; box-shadow: var(--shadow); font-size: 11px; opacity: 0; pointer-events: none; transition: opacity .2s; }
 .map-status.visible { opacity: 1; }
@@ -145,6 +147,16 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
 .popup-meta a { color: var(--blue); font-size: 11px; text-decoration: none; font-weight: 800; }
 .mobile-panel-button { display: none; }
 .mobile-sheet-header, .panel-backdrop { display: none; }
+
+.selection-card { position: absolute; z-index: 720; top: 18px; left: 18px; width: min(340px, calc(100% - 36px)); padding: 16px 44px 14px 16px; border: 1px solid rgba(255,255,255,.9); border-radius: 17px; background: rgba(255,255,255,.96); box-shadow: 0 16px 45px rgba(7,17,31,.2); backdrop-filter: blur(12px); }
+.selection-card[hidden] { display: none; }
+.selection-tag { display: block; color: #e44834; text-transform: uppercase; letter-spacing: .11em; font-size: 9px; font-weight: 900; margin-bottom: 5px; }
+.selection-card > strong { display: block; font-size: 15px; letter-spacing: -.02em; line-height: 1.25; }
+.selection-card p { color: var(--muted); font-size: 11px; line-height: 1.45; margin: 5px 0 11px; }
+.selection-actions { border-top: 1px solid var(--line); padding-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.selection-actions span { color: var(--ink); font-size: 11px; font-weight: 800; }
+.selection-actions a { color: var(--blue); font-size: 12px; font-weight: 850; text-decoration: none; white-space: nowrap; }
+.selection-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border: 0; border-radius: 50%; background: #eef2f6; color: var(--ink); font-size: 20px; line-height: 1; }
 
 dialog { width: min(520px, calc(100% - 32px)); border: 0; border-radius: 19px; padding: 30px; color: var(--ink); box-shadow: 0 28px 90px rgba(0,0,0,.3); }
 dialog::backdrop { background: rgba(4,13,25,.62); backdrop-filter: blur(4px); }
@@ -197,6 +209,10 @@ dialog a { color: var(--blue); font-weight: 750; font-size: 13px; }
   .mobile-button-copy small { color: #b9c4d3; font-size: 10px; font-weight: 600; }
   .mobile-button-chevron { opacity: .72; }
   .panel.open ~ .map-wrap .mobile-panel-button { opacity: 0; pointer-events: none; }
+  .selection-card { top: auto; left: 12px; right: 12px; bottom: calc(82px + env(safe-area-inset-bottom)); width: auto; padding: 14px 42px 12px 14px; border-radius: 18px; }
+  .selection-card > strong { font-size: 14px; }
+  .selection-card p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 9px; }
+  .panel.open ~ .map-wrap .selection-card { opacity: 0; pointer-events: none; }
   .leaflet-control-zoom { margin-bottom: 78px !important; }
   .leaflet-popup-content { min-width: 185px; margin: 13px 14px; }
   .map-status { top: 12px; max-width: calc(100% - 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
