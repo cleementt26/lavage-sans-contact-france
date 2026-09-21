@@ -32,6 +32,12 @@ button { cursor: pointer; }
 .leaflet-tile-loaded { visibility: inherit; }
 .leaflet-zoom-animated { transform-origin: 0 0; }
 .leaflet-zoom-hide { visibility: hidden; }
+.leaflet-tile-pane { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane { z-index: 500; }
+.leaflet-marker-pane { z-index: 600; }
+.leaflet-tooltip-pane { z-index: 650; }
+.leaflet-popup-pane { z-index: 700; }
 .leaflet-top, .leaflet-bottom { position: absolute; z-index: 1000; pointer-events: none; }
 .leaflet-top { top: 0; }
 .leaflet-right { right: 0; }
@@ -95,6 +101,8 @@ h1 em { color: var(--blue); font-style: normal; }
 .route-summary { font-size: 12px; line-height: 1.45; color: var(--muted); }
 .route-summary:not(:empty) { margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--line); }
 .route-summary.error { color: #ba3342; }
+.route-mode { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 5px; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; font-size: 9px; font-weight: 900; }
+.route-mode::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 3px rgba(17,103,232,.12); }
 
 .toggle-row { display: flex; align-items: center; justify-content: space-between; }
 .toggle-row strong, .toggle-row small { display: block; }

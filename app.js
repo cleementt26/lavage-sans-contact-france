@@ -9,7 +9,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const state = {
   stations: [], visibleStations: [], markers: new Map(),
-  userPosition: null, userMarker: null, route: null, routeLine: null,
+  userPosition: null, userMarker: null, route: null, routeLine: null, routeCasing: null,
   selectedStationId: null, locating: false
 };
 
@@ -273,21 +273,29 @@ async function calculateRoute(event) {
     const start = await geocode(startQuery);
     const end = await geocode(endQuery);
     routeSummary.textContent = 'Calcul du trajet…';
-    const url = `https://router.project-osrm.org/route/v1/driving/${start.lon},${start.lat};${end.lon},${end.lat}?overview=full&geometries=geojson`;
+    const url = `https://router.project-osrm.org/route/v1/driving/${start.lon},${start.lat};${end.lon},${end.lat}?alternatives=false&steps=false&overview=full&geometries=geojson`;
     const response = await fetch(url);
     const data = await response.json();
     if (data.code !== 'Ok' || !data.routes?.length) throw new Error('Aucun itinéraire routier trouvé');
     const best = data.routes[0];
     state.route = best.geometry.coordinates.map(([lon, lat]) => [lat, lon]);
     if (state.routeLine) state.routeLine.remove();
-    state.routeLine = L.polyline(state.route, { color: '#1167e8', weight: 5, opacity: .85, lineJoin: 'round' }).addTo(map);
-    map.fitBounds(state.routeLine.getBounds(), { padding: [35, 35] });
+    if (state.routeCasing) state.routeCasing.remove();
+    state.routeCasing = L.polyline(state.route, {
+      color: '#ffffff', weight: 10, opacity: .95, lineJoin: 'round', lineCap: 'round', interactive: false
+    }).addTo(map);
+    state.routeLine = L.polyline(state.route, {
+      color: '#1268e8', weight: 6, opacity: 1, lineJoin: 'round', lineCap: 'round', interactive: false
+    }).addTo(map);
+    state.routeCasing.bringToFront();
+    state.routeLine.bringToFront();
+    map.fitBounds(state.routeLine.getBounds(), { padding: window.innerWidth <= 820 ? [26, 26] : [42, 42] });
     routeFilter.disabled = false;
     distanceRange.disabled = false;
     document.querySelectorAll('.distance-presets button').forEach((preset) => { preset.disabled = false; });
     routeFilter.checked = true;
     $('#clearRoute').hidden = false;
-    routeSummary.innerHTML = `<strong>${distanceLabel(best.distance / 1000)} · ${Math.round(best.duration / 60)} min</strong><br>${escapeHtml(startQuery)} → ${escapeHtml(endQuery)}<span class="route-nearby" id="routeNearby"></span>`;
+    routeSummary.innerHTML = `<span class="route-mode">Trajet le plus rapide</span><br><strong>${distanceLabel(best.distance / 1000)} · ${Math.round(best.duration / 60)} min</strong><br>${escapeHtml(startQuery)} → ${escapeHtml(endQuery)}<span class="route-nearby" id="routeNearby"></span>`;
     renderStations();
     if (window.innerWidth <= 820) {
       closeMobilePanel();
@@ -301,7 +309,8 @@ async function calculateRoute(event) {
 
 function clearRoute() {
   if (state.routeLine) state.routeLine.remove();
-  state.route = null; state.routeLine = null;
+  if (state.routeCasing) state.routeCasing.remove();
+  state.route = null; state.routeLine = null; state.routeCasing = null;
   routeFilter.checked = false; routeFilter.disabled = true; distanceRange.disabled = true;
   document.querySelectorAll('.distance-presets button').forEach((preset) => { preset.disabled = true; });
   routeSummary.textContent = ''; $('#clearRoute').hidden = true;
