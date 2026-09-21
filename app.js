@@ -80,8 +80,25 @@ function stationDistance(station) {
 function popupHtml(station) {
   const km = stationDistance(station);
   const meta = Number.isFinite(km) ? `<strong>${routeFilter.checked ? 'À ' : ''}${distanceLabel(km)}${routeFilter.checked ? ' du trajet' : ''}</strong>` : '<strong>100 % sans contact</strong>';
-  const osmUrl = `https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=;${station.latitude},${station.longitude}`;
-  return `<span class="popup-tag">Robot haute pression</span><h3 class="popup-title">${escapeHtml(station.nom)}</h3><p class="popup-address">${escapeHtml(station.adresse)}</p><div class="popup-meta">${meta}<a href="${osmUrl}" target="_blank" rel="noopener">Y aller →</a></div>`;
+  return `<span class="popup-tag">Robot haute pression</span><h3 class="popup-title">${escapeHtml(station.nom)}</h3><p class="popup-address">${escapeHtml(station.adresse)}</p><div class="popup-meta">${meta}<button class="directions-trigger" type="button" data-route-station="${station.id}">Itinéraire →</button></div>`;
+}
+
+function openDirections(station) {
+  if (!station) return;
+  const destination = `${station.latitude},${station.longitude}`;
+  $('#directionsStationName').textContent = station.nom;
+  $('#googleMapsLink').href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+  $('#wazeLink').href = `https://www.waze.com/ul?ll=${encodeURIComponent(destination)}&navigate=yes`;
+  $('#appleMapsLink').href = `https://maps.apple.com/?daddr=${encodeURIComponent(destination)}&dirflg=d`;
+  const dialog = $('#directionsDialog');
+  if (typeof dialog.showModal === 'function') dialog.showModal();
+  else dialog.setAttribute('open', '');
+}
+
+function closeDirections() {
+  const dialog = $('#directionsDialog');
+  if (typeof dialog.close === 'function') dialog.close();
+  else dialog.removeAttribute('open');
 }
 
 function renderStations() {
@@ -155,7 +172,7 @@ function selectStation(id, scrollToItem = true) {
   $('#selectionDistance').textContent = Number.isFinite(distance)
     ? `${distanceLabel(distance)}${routeFilter.checked ? ' du trajet' : ''}`
     : '100 % sans contact';
-  $('#selectionDirections').href = `https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=;${station.latitude},${station.longitude}`;
+  $('#selectionDirections').dataset.stationId = station.id;
   selectionCard.hidden = false;
 }
 
@@ -453,9 +470,19 @@ $('.brand').addEventListener('click', (event) => { event.preventDefault(); map.s
 $('#aboutButton').addEventListener('click', () => $('#aboutDialog').showModal());
 $('#closeDialog').addEventListener('click', () => $('#aboutDialog').close());
 $('#selectionClose').addEventListener('click', clearStationSelection);
+$('#selectionDirections').addEventListener('click', () => {
+  openDirections(state.stations.find((station) => station.id === Number($('#selectionDirections').dataset.stationId)));
+});
+$('#closeDirectionsDialog').addEventListener('click', closeDirections);
+$('#directionsDialog').addEventListener('click', (event) => { if (event.target === event.currentTarget) closeDirections(); });
+document.addEventListener('click', (event) => {
+  const trigger = event.target.closest('[data-route-station]');
+  if (trigger) openDirections(state.stations.find((station) => station.id === Number(trigger.dataset.routeStation)));
+});
 const mobilePanel = $('.panel');
 const mobilePanelButton = $('#mobilePanelButton');
 const panelBackdrop = $('#panelBackdrop');
+const mobilePanelClose = $('#mobilePanelClose');
 
 function openMobilePanel() {
   mobilePanel.classList.add('open');
@@ -474,7 +501,16 @@ function closeMobilePanel(returnFocus = false) {
 }
 
 mobilePanelButton.addEventListener('click', openMobilePanel);
-$('#mobilePanelClose').addEventListener('click', () => closeMobilePanel(true));
+// pointerup répond immédiatement au toucher sur iOS ; click reste le repli clavier/souris.
+mobilePanelClose.addEventListener('pointerup', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  closeMobilePanel(true);
+});
+mobilePanelClose.addEventListener('click', (event) => {
+  event.preventDefault();
+  closeMobilePanel(true);
+});
 panelBackdrop.addEventListener('click', () => closeMobilePanel(true));
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMobilePanel(); });
 

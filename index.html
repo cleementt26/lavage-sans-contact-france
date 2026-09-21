@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJb+8eoEpsnXxVJzZ1nYmxL7d9w=" crossorigin="">
-  <link rel="stylesheet" href="styles.css?v=autocomplete-1">
+  <link rel="stylesheet" href="styles.css?v=navigation-1">
 </head>
 <body>
   <div class="app-shell">
@@ -129,7 +129,7 @@
           <p id="selectionAddress"></p>
           <div class="selection-actions">
             <span id="selectionDistance">100 % sans contact</span>
-            <a id="selectionDirections" href="#" target="_blank" rel="noopener">Y aller →</a>
+            <button id="selectionDirections" class="directions-trigger" type="button">Itinéraire →</button>
           </div>
         </article>
         <button class="mobile-panel-button" id="mobilePanelButton" type="button" aria-controls="mobilePanel" aria-expanded="false">
@@ -153,7 +153,25 @@
     <a href="SOURCES.md" target="_blank" rel="noopener">Consulter le registre des sources →</a>
   </dialog>
 
+  <dialog id="directionsDialog" class="directions-dialog">
+    <button class="dialog-close" id="closeDirectionsDialog" type="button" aria-label="Fermer">×</button>
+    <span class="eyebrow">Ouvrir l’itinéraire</span>
+    <h2 id="directionsStationName">Choisir une application</h2>
+    <p>Le trajet vers cette station s’ouvrira dans l’application choisie.</p>
+    <div class="navigation-apps">
+      <a id="googleMapsLink" class="navigation-app google" href="#" target="_blank" rel="noopener">
+        <span class="navigation-app-icon" aria-hidden="true">G</span><span><strong>Google Maps</strong><small>Itinéraire en voiture</small></span><b>→</b>
+      </a>
+      <a id="wazeLink" class="navigation-app waze" href="#" target="_blank" rel="noopener">
+        <span class="navigation-app-icon" aria-hidden="true">W</span><span><strong>Waze</strong><small>Navigation et trafic</small></span><b>→</b>
+      </a>
+      <a id="appleMapsLink" class="navigation-app apple" href="#" target="_blank" rel="noopener">
+        <span class="navigation-app-icon" aria-hidden="true">A</span><span><strong>Apple Plans</strong><small>Ouvrir dans Plans</small></span><b>→</b>
+      </a>
+    </div>
+  </dialog>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="app.js?v=autocomplete-1" defer></script>
+  <script src="app.js?v=navigation-1" defer></script>
 </body>
 </html>
