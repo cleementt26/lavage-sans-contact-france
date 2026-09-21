@@ -96,7 +96,9 @@ function renderStations() {
   }
 
   count.textContent = stations.length;
-  $('#mobileCount').textContent = `${stations.length} station${stations.length > 1 ? 's' : ''}`;
+  const stationCountLabel = `${stations.length} station${stations.length > 1 ? 's' : ''}`;
+  $('#mobileCount').textContent = stationCountLabel;
+  $('#mobileSheetCount').textContent = `${stationCountLabel} vérifiée${stations.length > 1 ? 's' : ''}`;
   stationList.innerHTML = stations.length ? stations.map((station) => `
     <button class="station-item" type="button" data-id="${station.id}">
       <span class="station-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17h16M6 17l1-7h10l1 7M8 10l1-3h6l1 3M7 14h.01M17 14h.01"/></svg></span>
@@ -114,7 +116,7 @@ function focusStation(id) {
   document.querySelectorAll('.station-item').forEach((item) => item.classList.toggle('active', Number(item.dataset.id) === id));
   map.flyTo([station.latitude, station.longitude], Math.max(map.getZoom(), 14), { duration: .8 });
   marker.setPopupContent(popupHtml(station)).openPopup();
-  if (window.innerWidth <= 820) $('.panel').classList.remove('open');
+  if (window.innerWidth <= 820) closeMobilePanel();
 }
 
 async function loadStations() {
@@ -186,6 +188,10 @@ async function calculateRoute(event) {
     $('#clearRoute').hidden = false;
     routeSummary.innerHTML = `<strong>${distanceLabel(best.distance / 1000)}</strong> · ${Math.round(best.duration / 60)} min<br>${escapeHtml(startQuery)} → ${escapeHtml(endQuery)}`;
     renderStations();
+    if (window.innerWidth <= 820) {
+      closeMobilePanel();
+      showStatus(`${state.visibleStations.length} station${state.visibleStations.length > 1 ? 's' : ''} près du trajet`);
+    }
   } catch (error) {
     routeSummary.className = 'route-summary error';
     routeSummary.textContent = error.message || 'Impossible de calculer cet itinéraire.';
@@ -210,7 +216,29 @@ distanceRange.addEventListener('input', () => { $('#distanceOutput').textContent
 $('.brand').addEventListener('click', (event) => { event.preventDefault(); map.setView(FRANCE_CENTER, 6); });
 $('#aboutButton').addEventListener('click', () => $('#aboutDialog').showModal());
 $('#closeDialog').addEventListener('click', () => $('#aboutDialog').close());
-$('#mobilePanelButton').addEventListener('click', () => $('.panel').classList.add('open'));
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') $('.panel').classList.remove('open'); });
+const mobilePanel = $('.panel');
+const mobilePanelButton = $('#mobilePanelButton');
+const panelBackdrop = $('#panelBackdrop');
+
+function openMobilePanel() {
+  mobilePanel.classList.add('open');
+  panelBackdrop.classList.add('visible');
+  mobilePanelButton.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('panel-open');
+  setTimeout(() => $('#mobilePanelClose').focus(), 280);
+}
+
+function closeMobilePanel(returnFocus = false) {
+  mobilePanel.classList.remove('open');
+  panelBackdrop.classList.remove('visible');
+  mobilePanelButton.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('panel-open');
+  if (returnFocus) mobilePanelButton.focus();
+}
+
+mobilePanelButton.addEventListener('click', openMobilePanel);
+$('#mobilePanelClose').addEventListener('click', () => closeMobilePanel(true));
+panelBackdrop.addEventListener('click', () => closeMobilePanel(true));
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMobilePanel(); });
 
 loadStations();

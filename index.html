@@ -29,7 +29,15 @@
     </header>
 
     <main class="workspace">
-      <aside class="panel" aria-label="Recherche et itinéraire">
+      <aside class="panel" id="mobilePanel" aria-label="Recherche et itinéraire">
+        <div class="mobile-sheet-header">
+          <span class="sheet-handle" aria-hidden="true"></span>
+          <div>
+            <strong>Recherche & itinéraire</strong>
+            <small id="mobileSheetCount">Stations vérifiées</small>
+          </div>
+          <button class="mobile-sheet-close" id="mobilePanelClose" type="button" aria-label="Fermer et revenir à la carte">×</button>
+        </div>
         <div class="panel-scroll">
           <section class="intro">
             <span class="eyebrow">Carte indépendante</span>
@@ -97,12 +105,17 @@
         </footer>
       </aside>
 
+      <button class="panel-backdrop" id="panelBackdrop" type="button" aria-label="Fermer le panneau"></button>
+
       <section class="map-wrap" aria-label="Carte des stations">
         <div id="map"></div>
         <div class="map-status" id="mapStatus" role="status">Chargement des stations…</div>
-        <button class="mobile-panel-button" id="mobilePanelButton" type="button">
-          <span id="mobileCount">Stations</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        <button class="mobile-panel-button" id="mobilePanelButton" type="button" aria-controls="mobilePanel" aria-expanded="false">
+          <span class="mobile-button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 4.9 12l4.1 4M8 11h6M11 8v6"/></svg>
+          </span>
+          <span class="mobile-button-copy"><strong>Rechercher</strong><small id="mobileCount">Stations</small></span>
+          <svg class="mobile-button-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 14 5-5 5 5"/></svg>
         </button>
       </section>
     </main>
