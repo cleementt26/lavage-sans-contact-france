@@ -21,6 +21,7 @@ const distanceRange = $('#distanceRange');
 const routeSummary = $('#routeSummary');
 const statusBox = $('#mapStatus');
 const selectionCard = $('#selectionCard');
+const citySuggestionCache = new Map();
 
 const markerIcon = L.divIcon({ className: '', html: '<div class="station-marker"></div>', iconSize: [34, 34], iconAnchor: [10, 32], popupAnchor: [7, -29] });
 const userIcon = L.divIcon({ className: '', html: '<div class="user-marker"></div>', iconSize: [17, 17], iconAnchor: [8, 8] });
@@ -260,6 +261,124 @@ async function geocode(query) {
   return { lat: Number(results[0].lat), lon: Number(results[0].lon), label: results[0].display_name };
 }
 
+function selectedPlace(input) {
+  const lat = Number(input.dataset.lat);
+  const lon = Number(input.dataset.lon);
+  if (Number.isFinite(lat) && Number.isFinite(lon)) {
+    return { lat, lon, label: input.dataset.label || input.value };
+  }
+  return null;
+}
+
+async function resolvePlace(input) {
+  return selectedPlace(input) || geocode(input.value.trim());
+}
+
+async function searchCities(query, signal) {
+  const key = query.trim().toLocaleLowerCase('fr');
+  if (citySuggestionCache.has(key)) return citySuggestionCache.get(key);
+  const url = `https://data.geopf.fr/geocodage/search?q=${encodeURIComponent(query)}&limit=7&type=municipality&autocomplete=1`;
+  const response = await fetch(url, { signal, headers: { Accept: 'application/json' } });
+  if (!response.ok) throw new Error('Suggestions indisponibles');
+  const data = await response.json();
+  const cities = (data.features || []).map((feature) => {
+    const properties = feature.properties || {};
+    const [lon, lat] = feature.geometry?.coordinates || [];
+    return {
+      name: properties.city || properties.name || properties.label,
+      label: properties.label || properties.city || properties.name,
+      context: [properties.postcode, properties.context].filter(Boolean).join(' · '),
+      lat: Number(lat),
+      lon: Number(lon)
+    };
+  }).filter((city) => city.name && Number.isFinite(city.lat) && Number.isFinite(city.lon));
+  citySuggestionCache.set(key, cities);
+  return cities;
+}
+
+function setupCityAutocomplete(input, list) {
+  let suggestions = [];
+  let activeIndex = -1;
+  let debounceTimer;
+  let controller;
+
+  const close = () => {
+    list.hidden = true;
+    list.innerHTML = '';
+    input.setAttribute('aria-expanded', 'false');
+    input.removeAttribute('aria-activedescendant');
+    activeIndex = -1;
+  };
+
+  const setActive = (index) => {
+    const items = [...list.querySelectorAll('.suggestion-item')];
+    if (!items.length) return;
+    activeIndex = (index + items.length) % items.length;
+    items.forEach((item, itemIndex) => item.classList.toggle('active', itemIndex === activeIndex));
+    input.setAttribute('aria-activedescendant', items[activeIndex].id);
+    items[activeIndex].scrollIntoView({ block: 'nearest' });
+  };
+
+  const choose = (index) => {
+    const city = suggestions[index];
+    if (!city) return;
+    input.value = city.name;
+    input.dataset.lat = city.lat;
+    input.dataset.lon = city.lon;
+    input.dataset.label = city.label;
+    close();
+    input.focus();
+  };
+
+  const render = (cities) => {
+    suggestions = cities;
+    activeIndex = -1;
+    if (!cities.length) {
+      list.innerHTML = '<div class="suggestion-message">Aucune ville trouvée</div>';
+    } else {
+      list.innerHTML = cities.map((city, index) => `
+        <button class="suggestion-item" id="${list.id}-option-${index}" type="button" role="option" data-index="${index}">
+          <span class="suggestion-pin" aria-hidden="true">⌖</span>
+          <span class="suggestion-copy"><strong>${escapeHtml(city.name)}</strong><small>${escapeHtml(city.context || 'France')}</small></span>
+        </button>`).join('');
+      list.querySelectorAll('.suggestion-item').forEach((item) => {
+        item.addEventListener('pointerdown', (event) => event.preventDefault());
+        item.addEventListener('click', () => choose(Number(item.dataset.index)));
+      });
+    }
+    list.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+  };
+
+  input.addEventListener('input', () => {
+    delete input.dataset.lat;
+    delete input.dataset.lon;
+    delete input.dataset.label;
+    clearTimeout(debounceTimer);
+    controller?.abort();
+    const query = input.value.trim();
+    if (query.length < 2) return close();
+    debounceTimer = setTimeout(async () => {
+      controller = new AbortController();
+      try {
+        render(await searchCities(query, controller.signal));
+      } catch (error) {
+        if (error.name !== 'AbortError') close();
+      }
+    }, 280);
+  });
+
+  input.addEventListener('keydown', (event) => {
+    if (list.hidden) return;
+    if (event.key === 'ArrowDown') { event.preventDefault(); setActive(activeIndex + 1); }
+    else if (event.key === 'ArrowUp') { event.preventDefault(); setActive(activeIndex - 1); }
+    else if (event.key === 'Enter' && activeIndex >= 0) { event.preventDefault(); choose(activeIndex); }
+    else if (event.key === 'Escape') close();
+  });
+  input.addEventListener('blur', () => setTimeout(close, 120));
+  input.addEventListener('focus', () => { if (suggestions.length && input.value.trim().length >= 2) render(suggestions); });
+}
+
 async function calculateRoute(event) {
   event.preventDefault();
   const button = event.currentTarget.querySelector('button[type="submit"]');
@@ -269,9 +388,10 @@ async function calculateRoute(event) {
   routeSummary.textContent = 'Recherche des adresses…';
   button.disabled = true;
   try {
-    // Requêtes séquentielles par courtoisie envers le géocodeur public.
-    const start = await geocode(startQuery);
-    const end = await geocode(endQuery);
+    // Une ville choisie dans les suggestions possède déjà ses coordonnées.
+    // La saisie libre reste possible et passe alors par le géocodeur existant.
+    const start = await resolvePlace($('#startInput'));
+    const end = await resolvePlace($('#endInput'));
     routeSummary.textContent = 'Calcul du trajet…';
     const url = `https://router.project-osrm.org/route/v1/driving/${start.lon},${start.lat};${end.lon},${end.lat}?alternatives=false&steps=false&overview=full&geometries=geojson`;
     const response = await fetch(url);
@@ -321,6 +441,8 @@ function clearRoute() {
 $('#locateButton').addEventListener('click', locateUser);
 $('#locatePrimary').addEventListener('click', locateUser);
 $('#routeForm').addEventListener('submit', calculateRoute);
+setupCityAutocomplete($('#startInput'), $('#startSuggestions'));
+setupCityAutocomplete($('#endInput'), $('#endSuggestions'));
 $('#clearRoute').addEventListener('click', clearRoute);
 routeFilter.addEventListener('change', renderStations);
 distanceRange.addEventListener('input', () => setRouteDistance(distanceRange.value));

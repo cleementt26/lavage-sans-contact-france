@@ -87,12 +87,23 @@ h1 em { color: var(--blue); font-style: normal; }
 .route-card, .filter-card { border: 1px solid var(--line); border-radius: 15px; padding: 17px; margin-top: 15px; background: var(--white); }
 .section-heading { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 13px; }
 .text-button { border: 0; background: transparent; color: var(--blue); padding: 0; font-size: 11px; font-weight: 700; }
+.autocomplete-field { position: relative; }
 .route-field { height: 44px; border: 1px solid var(--line); border-radius: 10px; display: flex; align-items: center; padding: 0 12px; gap: 10px; background: #fbfcfd; }
 .route-field:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(17,103,232,.1); }
 .route-field input { border: 0; outline: 0; background: transparent; width: 100%; min-width: 0; color: var(--ink); font-size: 13px; }
 .route-field input::placeholder { color: #929baa; }
 .route-dot { width: 9px; height: 9px; flex: 0 0 auto; border-radius: 50%; border: 2px solid var(--blue); }
 .route-dot.end { border-radius: 2px; border-color: #ff6a55; }
+.suggestions { position: absolute; z-index: 1300; top: calc(100% + 6px); left: 0; right: 0; max-height: 250px; overflow-y: auto; padding: 6px; border: 1px solid #d5dce6; border-radius: 12px; background: rgba(255,255,255,.99); box-shadow: 0 16px 38px rgba(7,17,31,.18); }
+.suggestions[hidden] { display: none; }
+.suggestion-item { width: 100%; min-height: 48px; display: grid; grid-template-columns: 34px 1fr; gap: 9px; align-items: center; border: 0; border-radius: 9px; padding: 7px 9px; background: transparent; color: var(--ink); text-align: left; }
+.suggestion-item:hover, .suggestion-item.active { background: #edf5ff; }
+.suggestion-pin { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: #e6f0ff; color: var(--blue); font-size: 15px; }
+.suggestion-copy { min-width: 0; }
+.suggestion-copy strong, .suggestion-copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.suggestion-copy strong { font-size: 12px; }
+.suggestion-copy small { margin-top: 3px; color: var(--muted); font-size: 10px; }
+.suggestion-message { padding: 12px; color: var(--muted); font-size: 11px; text-align: center; }
 .route-line { height: 9px; border-left: 1px dashed #bdc5d0; margin-left: 16px; }
 .route-button { width: 100%; border: 0; background: var(--blue); color: white; border-radius: 10px; min-height: 43px; margin-top: 13px; padding: 0 13px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 750; }
 .route-button:hover { background: var(--blue-dark); }

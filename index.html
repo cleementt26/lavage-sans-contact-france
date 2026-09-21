@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJb+8eoEpsnXxVJzZ1nYmxL7d9w=" crossorigin="">
-  <link rel="stylesheet" href="styles.css?v=route-2">
+  <link rel="stylesheet" href="styles.css?v=autocomplete-1">
 </head>
 <body>
   <div class="app-shell">
@@ -56,15 +56,21 @@
               <button id="clearRoute" type="button" class="text-button" hidden>Effacer</button>
             </div>
             <form id="routeForm">
-              <label class="route-field">
-                <span class="route-dot start"></span>
-                <input id="startInput" autocomplete="street-address" required placeholder="Adresse de départ">
-              </label>
+              <div class="autocomplete-field">
+                <label class="route-field">
+                  <span class="route-dot start"></span>
+                  <input id="startInput" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="startSuggestions" aria-expanded="false" required placeholder="Ville ou adresse de départ">
+                </label>
+                <div class="suggestions" id="startSuggestions" role="listbox" aria-label="Suggestions de villes de départ" hidden></div>
+              </div>
               <div class="route-line"></div>
-              <label class="route-field">
-                <span class="route-dot end"></span>
-                <input id="endInput" autocomplete="street-address" required placeholder="Adresse d’arrivée">
-              </label>
+              <div class="autocomplete-field">
+                <label class="route-field">
+                  <span class="route-dot end"></span>
+                  <input id="endInput" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="endSuggestions" aria-expanded="false" required placeholder="Ville ou adresse d’arrivée">
+                </label>
+                <div class="suggestions" id="endSuggestions" role="listbox" aria-label="Suggestions de villes d’arrivée" hidden></div>
+              </div>
               <button class="route-button" type="submit">
                 Calculer l’itinéraire
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
@@ -148,6 +154,6 @@
   </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="app.js?v=route-2" defer></script>
+  <script src="app.js?v=autocomplete-1" defer></script>
 </body>
 </html>
