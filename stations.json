@@ -27,5 +27,7 @@
   {"id":26,"nom":"Elite Wash La Glacerie","adresse":"Voie de la Liberté, 50470 Cherbourg-en-Cotentin, France","latitude":49.617361,"longitude":-1.608833},
   {"id":27,"nom":"E.Leclerc Blaye","adresse":"Zone commerciale Boisredon–La Gruppe, 33390 Cars, France","latitude":45.128651,"longitude":-0.640473},
   {"id":28,"nom":"Mouss'Auto Trélazé","adresse":"Avenue Pierre-Mendès-France, 49800 Trélazé, France","latitude":47.447642,"longitude":-0.507523},
-  {"id":29,"nom":"Super U Bonsecours","adresse":"2 route de Paris, 76240 Bonsecours, France","latitude":49.417369,"longitude":1.132859}
+  {"id":29,"nom":"Super U Bonsecours","adresse":"2 route de Paris, 76240 Bonsecours, France","latitude":49.417369,"longitude":1.132859},
+  {"id":30,"nom":"Auto Lavage 42 — Mouss'Auto","adresse":"5 boulevard Pierre-Desgranges, 42160 Andrézieux-Bouthéon, France","latitude":45.532311,"longitude":4.2764},
+  {"id":31,"nom":"NVR Lavage","adresse":"187 avenue de la Libération, 42120 Le Coteau, France","latitude":46.018511,"longitude":4.090798}
 ]

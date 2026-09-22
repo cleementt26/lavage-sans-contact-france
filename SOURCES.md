@@ -1,6 +1,6 @@
 # Registre des sources et méthode
 
-Dernière vérification : **21 septembre 2026**.
+Dernière vérification : **22 septembre 2026**.
 
 ## Critère d'inclusion
 
@@ -43,9 +43,16 @@ Il n'existe pas de registre national officiel de ce type d'équipement. Cette ba
 11. **Annuaire des Entreprises (État français)**  
     Vérification de certaines adresses d'établissements : <https://annuaire-entreprises.data.gouv.fr/>
 
+12. **Auto Lavage 42 — Mouss'Auto, Andrézieux-Bouthéon**  
+    Le site officiel décrit deux robots Airtone automatiques haute pression « sans aucun contact » et « sans brosses » : <https://autolavage42.fr/>. Adresse géocodée : 5 boulevard Pierre-Desgranges, 42160 Andrézieux-Bouthéon.
+
+13. **NVR Lavage, Le Coteau**  
+    La page publique de l'exploitant décrit un nettoyage haute pression « sans contact » et « sans rouleaux » : <https://www.facebook.com/nvrlavage/>. L'adresse de l'établissement est recoupée avec les données légales publiques : <https://www.pappers.fr/entreprise/nvr-lavage-913723466>.
+
 ## Notes de qualité
 
 - Les coordonnées de la carte fabricant ont été recoupées avec OpenStreetMap lorsque l'établissement y était identifié.
 - La longitude publiée pour Carrefour Market Cabourg sur une source était de signe erroné ; la coordonnée a été corrigée par recoupement avec l'établissement réel.
 - Certaines stations ont changé d'enseigne depuis leur installation (par exemple Colombelles). Le nom affiché privilégie l'enseigne publique actuelle lorsqu'elle a pu être établie.
 - Une station peut proposer plusieurs techniques sur le même site : sa présence ici confirme qu'au moins une baie automatique est sans contact, pas que tous ses équipements le sont.
+- Les coordonnées des deux ajouts du 22 septembre 2026 ont été obtenues par géocodage de leur adresse complète avec le service public Géoplateforme : <https://data.geopf.fr/geocodage/>.

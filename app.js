@@ -196,7 +196,7 @@ function focusStation(id) {
 
 async function loadStations() {
   try {
-    const response = await fetch('stations.json');
+    const response = await fetch('stations.json?v=2026-09-22-rhone-alpes-1');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.stations = await response.json();
     state.stations.forEach((station) => {
