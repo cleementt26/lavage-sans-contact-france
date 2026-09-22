@@ -199,6 +199,8 @@ async function loadStations() {
     const response = await fetch('stations.json?v=2026-09-22-rhone-alpes-1');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.stations = await response.json();
+    const heroStationCount = document.querySelector('#heroStationCount');
+    if (heroStationCount) heroStationCount.textContent = state.stations.length;
     state.stations.forEach((station) => {
       const marker = L.marker([station.latitude, station.longitude], { icon: markerIcon }).bindPopup(() => popupHtml(station));
       marker.on('click', () => selectStation(station.id));
