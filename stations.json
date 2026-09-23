@@ -244,6 +244,7 @@
     "latitude": 49.277904,
     "longitude": -0.134814,
     "sources": [
+      "https://360-wash.fr/blog/installation-robot-360-wash-carrefour-market-cabourg",
       "https://360-wash.fr/nos-realisations"
     ],
     "date_controle": "2026-09-23",
@@ -299,31 +300,34 @@
     "id": 25,
     "nom": "Charvaz Auto — Pont-d'Ain",
     "adresse": "2 rue Gabriel-Vicaire, 01160 Pont-d'Ain, France",
-    "latitude": 46.04552,
-    "longitude": 5.336323,
+    "latitude": 46.0453046,
+    "longitude": 5.3364208,
     "sources": [
+      "https://360-wash.fr/blog/installation-robot-360-wash-pont-d-ain-a-c-2-r",
       "https://360-wash.fr/nos-realisations"
     ],
     "date_controle": "2026-09-23",
-    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
-    "source_position": "https://data.geopf.fr/geocodage/search?q=2+rue+Gabriel-Vicaire%2C+01160+Pont-d%27Ain&limit=1",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Charvaz%20Auto%20%E2%80%94%20Pont-d%27Ain%202%20rue%20Gabriel-Vicaire%2C%2001160%20Pont-d%27Ain%2C%20France",
-    "google_maps_type": "recherche"
+    "precision_position": "Fiche Google Maps du robot 360° Wash à cette adresse.",
+    "source_position": "https://www.google.com/maps?cid=5548531701640578190",
+    "google_maps_url": "https://www.google.com/maps?cid=5548531701640578190",
+    "google_maps_type": "fiche"
   },
   {
     "id": 26,
     "nom": "Elite Wash La Glacerie",
     "adresse": "Voie de la Liberté, 50470 Cherbourg-en-Cotentin, France",
-    "latitude": 49.617361,
-    "longitude": -1.608833,
+    "latitude": 49.6173528,
+    "longitude": -1.6088605,
     "sources": [
+      "https://360-wash.fr/blog/installation-robot-360wash-elite-wash-glacerie",
       "https://360-wash.fr/nos-realisations",
       "https://elitewashcherbourg.fr/"
     ],
     "date_controle": "2026-09-23",
-    "precision_position": "Coordonnées publiées par l’exploitant.",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elite%20Wash%20La%20Glacerie%20Voie%20de%20la%20Libert%C3%A9%2C%2050470%20Cherbourg-en-Cotentin%2C%20France",
-    "google_maps_type": "recherche"
+    "precision_position": "Fiche Google Maps de la station Elite Wash.",
+    "google_maps_url": "https://www.google.com/maps?cid=2186488460139686117",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=2186488460139686117"
   },
   {
     "id": 27,
@@ -332,6 +336,7 @@
     "latitude": 45.128651,
     "longitude": -0.640473,
     "sources": [
+      "https://360-wash.fr/blog/installation-robot-360wash-e-leclerc-blaye",
       "https://360-wash.fr/nos-realisations"
     ],
     "date_controle": "2026-09-23",

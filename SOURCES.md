@@ -1,6 +1,6 @@
 # Sources et contrôle du 23 septembre 2026
 
-44 stations documentées, dont 24 liens vers une fiche Google Maps identifiée. 17 ajouts au total lors du contrôle du 23 septembre, 4 anciennes entrées mises en attente.
+46 stations documentées, dont 28 liens vers une fiche Google Maps identifiée. Les articles du blog 360° Wash recoupés le 23 septembre attestent quatre robots déjà présents sur la carte ; deux liens de fiches et leurs positions ont été précisés. Aucun nouveau pin n'a été créé à partir des installations sans accès public établi ou dont le robot actuel est incertain.
 
 La recherche régionale complémentaire ajoute Valence, Crémieu, Mably et Feurs. Voir RECHERCHE-REGIONALE.md pour les pistes non publiées et les limites.
 
@@ -8,10 +8,12 @@ Le contrôle est documentaire, pas une inspection sur place. Une fiche Google Ma
 
 ## Entrées mises en attente
 
-- Station de Lavage Caen Louvigny : Adresse historique et site actuel contradictoires; présence actuelle du robot à établir.
+- Station de Lavage Caen Louvigny : installation historique confirmée, mais le site actuel indique un portique SoftCare à rouleaux : https://www.station-lavage-caen-louvigny.fr/.
 - Lavage automobile Riom : Le fabricant mentionne Riom, mais identité et adresse exacte du centre non corroborées.
-- Thomas Wash Meximieux : La fiche Google Thomas Wash est à une autre adresse; rattachement au robot de Meximieux non établi.
-- Car Wash 43 : Adresse et commune contradictoires; emplacement actuel du portique à établir.
+- Thomas Wash Meximieux : robot historique confirmé, mais la station de la rue Simone-Veil a été reprise par Elite Lavage en 2024 ; maintien du robot non confirmé. https://www.pappers.fr/entreprise/elite-lavage-meximieux-928861566
+- Car Wash 43 : nom sur la carte fabricant, plusieurs adresses et reprise de l'établissement de Saint-Maurice-de-Lignon en 2026 ; identifier la piste et l'équipement actuels. https://www.pappers.fr/entreprise/mattwash-100601418
+- Mercedes-Benz Alliance Carentan : robot confirmé dans la concession, mais accès public non établi. https://360-wash.fr/blog/installation-robot-360wash-mercedes-carentan
+- Self Carwash Auto : marqueur identifié à Bois-de-Villers en Belgique, hors périmètre français. https://lavageautobelgique.com/c/profondeville-92/
 
 ## Registre des sources
 
@@ -162,6 +164,7 @@ Rue de l'Industrie, 42600 Savigneux, France
 ### 21. Carrefour Market Cabourg
 Boulevard Achille-Colin, 14390 Cabourg, France
 
+- Source équipement : https://360-wash.fr/blog/installation-robot-360-wash-carrefour-market-cabourg
 - Source équipement : https://360-wash.fr/nos-realisations
 - Google Maps (recherche) : https://www.google.com/maps/search/?api=1&query=Carrefour%20Market%20Cabourg%20Boulevard%20Achille-Colin%2C%2014390%20Cabourg%2C%20France
 - Position : Emplacement issu du recensement fabricant ; précision à confirmer.
@@ -198,25 +201,26 @@ Boulevard Achille-Colin, 14390 Cabourg, France
 ### 25. Charvaz Auto — Pont-d'Ain
 2 rue Gabriel-Vicaire, 01160 Pont-d'Ain, France
 
+- Source équipement : https://360-wash.fr/blog/installation-robot-360-wash-pont-d-ain-a-c-2-r
 - Source équipement : https://360-wash.fr/nos-realisations
-- Google Maps (recherche) : https://www.google.com/maps/search/?api=1&query=Charvaz%20Auto%20%E2%80%94%20Pont-d%27Ain%202%20rue%20Gabriel-Vicaire%2C%2001160%20Pont-d%27Ain%2C%20France
-- Position : Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.
-- Source position : https://data.geopf.fr/geocodage/search?q=2+rue+Gabriel-Vicaire%2C+01160+Pont-d%27Ain&limit=1
+- Google Maps (fiche du robot) : https://www.google.com/maps?cid=5548531701640578190
+- Position : 46.0453046, 5.3364208, issue de la fiche de la station 360° Wash.
 
 
 ### 26. Elite Wash La Glacerie
 Voie de la Liberté, 50470 Cherbourg-en-Cotentin, France
 
+- Source équipement : https://360-wash.fr/blog/installation-robot-360wash-elite-wash-glacerie
 - Source équipement : https://360-wash.fr/nos-realisations
 - Source équipement : https://elitewashcherbourg.fr/
-- Google Maps (recherche) : https://www.google.com/maps/search/?api=1&query=Elite%20Wash%20La%20Glacerie%20Voie%20de%20la%20Libert%C3%A9%2C%2050470%20Cherbourg-en-Cotentin%2C%20France
-- Position : Coordonnées publiées par l’exploitant.
-- Source position : recensement fabricant
+- Google Maps (fiche) : https://www.google.com/maps?cid=2186488460139686117
+- Position : 49.6173528, -1.6088605, issue de la fiche de la station.
 
 
 ### 27. E.Leclerc Blaye
 Zone commerciale Boisredon–La Gruppe, 33390 Cars, France
 
+- Source équipement : https://360-wash.fr/blog/installation-robot-360wash-e-leclerc-blaye
 - Source équipement : https://360-wash.fr/nos-realisations
 - Google Maps (recherche) : https://www.google.com/maps/search/?api=1&query=E.Leclerc%20Blaye%20Zone%20commerciale%20Boisredon%E2%80%93La%20Gruppe%2C%2033390%20Cars%2C%20France
 - Position : Emplacement issu du recensement fabricant ; précision à confirmer.

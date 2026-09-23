@@ -5,7 +5,7 @@
     "adresse": "12 rue des Anémones, 14111 Louvigny, France",
     "latitude": 49.157917,
     "longitude": -0.391901,
-    "motif": "Adresse historique et site actuel contradictoires; présence actuelle du robot à établir."
+    "motif": "Installation historique 360° Wash (2020), mais le site actuel de la station décrit un portique SoftCare à rouleaux. Ne pas afficher sans nouvelle preuve du robot. Source : https://www.station-lavage-caen-louvigny.fr/"
   },
   {
     "id": 15,
@@ -18,17 +18,22 @@
   {
     "id": 18,
     "nom": "Thomas Wash Meximieux",
-    "adresse": "Rue du Séminaire, 01800 Meximieux, France",
-    "latitude": 45.9052,
-    "longitude": 5.1949,
-    "motif": "La fiche Google Thomas Wash est à une autre adresse; rattachement au robot de Meximieux non établi."
+    "adresse": "175 rue Simone Veil, 01800 Meximieux, France (établissement actuel)",
+    "motif": "Le fabricant atteste le robot chez Thomas Wash, rue Simone-Veil / ZA des Granges. Le fonds a été vendu en 2024 à Elite Lavage Meximieux (175 rue Simone Veil) ; la fiche Google actuelle montre des équipements à brosses et ne confirme pas le maintien du robot. Sources : https://fr.linkedin.com/posts/360-wash_implantation-du-robot-360-wash-chez-thomas-activity-7100410324004007936--NU_ ; https://www.pappers.fr/entreprise/elite-lavage-meximieux-928861566 ; https://www.google.com/maps?cid=8151741712681497920"
   },
   {
     "id": 20,
     "nom": "Car Wash 43",
-    "adresse": "rue de Chirel, 43750 Vals-près-le-Puy",
-    "latitude": 45.0428,
-    "longitude": 3.8829,
-    "motif": "Adresse et commune contradictoires; emplacement actuel du portique à établir."
+    "motif": "Car Wash 43 apparaît sur la carte du fabricant mais l'établissement du 320 rue du Bouchet, Saint-Maurice-de-Lignon a été cédé à Mattwash en 2026. Le site exact du robot et sa présence actuelle restent à établir. Source : https://www.pappers.fr/entreprise/mattwash-100601418"
+  },
+  {
+    "id": 51,
+    "nom": "Alliance Mercedes-Benz Carentan-les-Marais",
+    "motif": "Robot 360° Wash installé en mai 2026 au sein de la concession, mais l'article indique un usage par les équipes et pour les véhicules de la concession ; accès public non établi. Source : https://360-wash.fr/blog/installation-robot-360wash-mercedes-carentan"
+  },
+  {
+    "id": 52,
+    "nom": "Pessleux - Bois-de-Villers (Belgique)",
+    "motif": "Le marqueur 'Station de lavage self carwash auto' de la carte fabricant est à Profondeville, en Belgique, hors du périmètre français. Source : https://lavageautobelgique.com/c/profondeville-92/"
   }
 ]
