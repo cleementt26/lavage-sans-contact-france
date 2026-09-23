@@ -79,19 +79,15 @@ function stationDistance(station) {
 
 // A business profile is distinct from a name/address search fallback.
 function mapsLabel(station) {
-  return station.google_maps_type === 'fiche' ? 'Fiche Google Maps ↗' : 'Rechercher sur Google Maps ↗';
+  return station.google_maps_type === 'fiche' ? 'Google Maps ↗' : 'Recherche Maps ↗';
 }
 function stationMapsUrl(station) {
   return station.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(station.nom + ' ' + station.adresse)}`;
 }
 function stationLinks(station) {
-  return `<div class="station-links"><a href="${escapeHtml(stationMapsUrl(station))}" target="_blank" rel="noopener noreferrer">${mapsLabel(station)}</a><a href="${escapeHtml(station.sources[0])}" target="_blank" rel="noopener noreferrer">Source du sans-contact ↗</a></div><small class="position-note">${escapeHtml(station.precision_position || '')}${station.note ? ' ' + escapeHtml(station.note) : ''}</small>`;
-}
-
-function popupHtml(station) {
-  const km = stationDistance(station);
-  const meta = Number.isFinite(km) ? `<strong>${routeFilter.checked ? 'À ' : ''}${distanceLabel(km)}${routeFilter.checked ? ' du trajet' : ''}</strong>` : '<strong>100 % sans contact</strong>';
-  return `<span class="popup-tag">Robot haute pression</span><h3 class="popup-title">${escapeHtml(station.nom)}</h3><p class="popup-address">${escapeHtml(station.adresse)}</p>${stationLinks(station)}<div class="popup-meta">${meta}<button class="directions-trigger" type="button" data-route-station="${station.id}">Itinéraire →</button></div>`;
+  const precision = station.precision_position || '';
+  const positionLabel = precision.includes('fiche Google') ? 'Position Google Maps' : precision.includes('géocodée') ? 'Adresse géocodée · entrée à vérifier' : 'Emplacement à confirmer';
+  return `<div class="station-links"><a href="${escapeHtml(stationMapsUrl(station))}" target="_blank" rel="noopener noreferrer" aria-label="${station.google_maps_type === 'fiche' ? 'Ouvrir la fiche Google Maps' : 'Rechercher la station sur Google Maps'}">${mapsLabel(station)}</a><a href="${escapeHtml(station.sources[0])}" target="_blank" rel="noopener noreferrer" aria-label="Consulter la source du lavage sans contact">Source ↗</a></div><small class="position-note" title="${escapeHtml(precision)}">${positionLabel}</small>${station.note ? `<small class="station-notice">${escapeHtml(station.note)}</small>` : ''}`;
 }
 
 function openDirections(station) {
@@ -169,6 +165,7 @@ function setRouteDistance(value) {
 function selectStation(id, scrollToItem = true) {
   const station = state.stations.find((item) => item.id === id);
   if (!station) return;
+  map.closePopup();
   state.selectedStationId = id;
   for (const [markerId, marker] of state.markers) {
     marker.getElement()?.classList.toggle('is-selected', markerId === id);
@@ -202,7 +199,7 @@ function focusStation(id) {
   if (!station || !marker) return;
   selectStation(id);
   map.flyTo([station.latitude, station.longitude], Math.max(map.getZoom(), 14), { duration: .8 });
-  marker.setPopupContent(popupHtml(station)).openPopup();
+  // One shared card avoids overlapping Leaflet popups and clipped close buttons.
   if (window.innerWidth <= 820) closeMobilePanel();
 }
 
@@ -214,7 +211,7 @@ async function loadStations() {
     const heroStationCount = document.querySelector('#heroStationCount');
     if (heroStationCount) heroStationCount.textContent = state.stations.length;
     state.stations.forEach((station) => {
-      const marker = L.marker([station.latitude, station.longitude], { icon: markerIcon }).bindPopup(() => popupHtml(station));
+      const marker = L.marker([station.latitude, station.longitude], { icon: markerIcon, title: station.nom });
       marker.on('click', () => selectStation(station.id));
       marker.addTo(map);
       state.markers.set(station.id, marker);
