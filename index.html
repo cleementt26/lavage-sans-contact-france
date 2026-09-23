@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJb+8eoEpsnXxVJzZ1nYmxL7d9w=" crossorigin="">
-  <link rel="stylesheet" href="styles.css?v=compact-card-20260923-1">
+  <link rel="stylesheet" href="styles.css?v=regional-20260923-2">
 </head>
 <body>
   <div class="app-shell">
@@ -36,7 +36,7 @@
             <strong>Recherche & itinéraire</strong>
             <small id="mobileSheetCount">Stations documentées</small>
           </div>
-          <button class="mobile-sheet-close" id="mobilePanelClose" type="button" aria-label="Fermer et revenir à la carte">×</button>
+          <button class="mobile-sheet-close" id="mobilePanelClose" type="button" aria-label="Fermer et revenir à la carte"><svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
         </div>
         <div class="panel-scroll">
           <section class="intro">
@@ -44,7 +44,7 @@
             <h1>Trouvez un lavage<br><em>vraiment</em> sans contact.</h1>
             <p>Des robots haute pression automatiques, sans rouleaux ni brosses.</p>
             <div class="hero-facts" aria-label="Informations sur la carte">
-              <span><strong id="heroStationCount">40</strong> stations documentées</span>
+              <span><strong id="heroStationCount">44</strong> stations documentées</span>
               <span><strong>100 %</strong> sans brosses</span>
             </div>
           </section>
@@ -128,7 +128,7 @@
         <div class="map-legend" aria-hidden="true"><i></i><span>Station documentée</span></div>
         <div class="map-status" id="mapStatus" role="status">Chargement des stations…</div>
         <article class="selection-card" id="selectionCard" aria-live="polite" hidden>
-          <button class="selection-close" id="selectionClose" type="button" aria-label="Fermer la fiche de la station">×</button>
+          <button class="selection-close" id="selectionClose" type="button" aria-label="Fermer la fiche de la station"><svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
           <span class="selection-tag">Station sélectionnée</span>
           <strong id="selectionName"></strong>
           <p id="selectionAddress"></p>
@@ -150,7 +150,7 @@
   </div>
 
   <dialog id="aboutDialog">
-    <button class="dialog-close" id="closeDialog" aria-label="Fermer">×</button>
+    <button class="dialog-close" id="closeDialog" aria-label="Fermer"><svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     <span class="eyebrow">Transparence</span>
     <h2>Méthode & limites</h2>
     <p>La carte recense uniquement des équipements automatiques dont le fonctionnement sans contact a pu être confirmé publiquement. Une station peut aussi proposer, à côté, des rouleaux ou des pistes manuelles.</p>
@@ -160,7 +160,7 @@
   </dialog>
 
   <dialog id="directionsDialog" class="directions-dialog">
-    <button class="dialog-close" id="closeDirectionsDialog" type="button" aria-label="Fermer">×</button>
+    <button class="dialog-close" id="closeDirectionsDialog" type="button" aria-label="Fermer"><svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     <span class="eyebrow">Ouvrir l’itinéraire</span>
     <h2 id="directionsStationName">Choisir une application</h2>
     <p>Le trajet vers cette station s’ouvrira dans l’application choisie.</p>
@@ -178,6 +178,6 @@
   </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="app.js?v=compact-card-20260923-1" defer></script>
+  <script src="app.js?v=regional-20260923-2" defer></script>
 </body>
 </html>

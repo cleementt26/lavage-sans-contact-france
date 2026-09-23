@@ -312,3 +312,8 @@ dialog a { color: var(--blue); font-weight: 750; font-size: 13px; }
   .position-note {margin-bottom: 5px;}
   .selection-actions {padding-top: 5px;}
 }
+
+/* Geometric crosses avoid font baseline offsets in every close control. */
+.selection-close, .dialog-close, .mobile-sheet-close {display:grid;place-items:center;padding:0;line-height:0;box-sizing:border-box;}
+.dialog-close {width:36px;height:36px;border-radius:50%;background:#f0f4f7;}
+.close-icon {display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}

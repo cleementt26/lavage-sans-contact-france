@@ -205,7 +205,7 @@ function focusStation(id) {
 
 async function loadStations() {
   try {
-    const response = await fetch('stations.json?v=2026-09-23-audit-1');
+    const response = await fetch('stations.json?v=2026-09-23-regional-2');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.stations = await response.json();
     const heroStationCount = document.querySelector('#heroStationCount');

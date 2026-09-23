@@ -1,6 +1,8 @@
 # Sources et contrôle du 23 septembre 2026
 
-40 stations documentées, dont 20 liens vers une fiche Google Maps identifiée. 13 ajouts, 4 anciennes entrées mises en attente.
+44 stations documentées, dont 24 liens vers une fiche Google Maps identifiée. 17 ajouts au total lors du contrôle du 23 septembre, 4 anciennes entrées mises en attente.
+
+La recherche régionale complémentaire ajoute Valence, Crémieu, Mably et Feurs. Voir RECHERCHE-REGIONALE.md pour les pistes non publiées et les limites.
 
 Le contrôle est documentaire, pas une inspection sur place. Une fiche Google Maps confirme un établissement et sa position, pas à elle seule son équipement. Les sources techniques sont indiquées séparément. Les coordonnées BAN/IGN localisent une adresse, pas nécessairement l’entrée de la piste. Les recherches Google sont étiquetées comme telles. Aucun score de confiance arbitraire n'est utilisé.
 
@@ -375,3 +377,37 @@ Avenue de la Sucrerie, 62180 Verton, France
 - Source position : https://www.google.com/maps?cid=1752178233839924644
 
 
+
+### 45. Starwash Valence Sud
+Avenue de Provence, parking Auchan, 26000 Valence, France
+
+- Preuve équipement : Portiques POWERJET sans contact décrits par l’exploitant ; fiche Maps et réponse du propriétaire recoupées.
+- Source : https://www.dwash.fr/
+- Source : https://fr.linkedin.com/posts/david-palomas-018850a6_parking-busitec-starwash-activity-7017906147500126209-aHtT
+- Google Maps et position : https://www.google.com/maps?cid=13178683869378780144
+
+### 46. Starwash Crémieu
+Rue des Equets, 38460 Crémieu, France
+
+- Preuve équipement : Photographie du portique POWERJET portant la mention SANS BROSSE ; témoignage de 2022 et fiche Google Maps recoupés. Date de la photographie non établie.
+- Source : https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7FYUUZHkPnk_CAofpic-AVgaJBa6MsdE8VpDCRnCe4q0q00AIpMbUoPNrYMyIamJB9bwV92IyFBdqm-PpK_An4lulXP_qIwutQJz7k2c2svwjq7-VjTZaaG2Qe4-AVJMmNyA4XUvO7yQfXojjl8DVIusfHQau-3bYjl5o5D5XrqSkwX1FWcu63b7qTLbwecuttlNxZLBBTog?fife=s16383
+- Source : https://www.blogtesla.fr/forum/viewtopic.php?p=240291
+- Source : https://www.google.com/maps/d/viewer?mid=1rT8HnuCZLPcfynU_kQjNKRPlbxV1qlg
+- Google Maps et position : https://www.google.com/maps?cid=15106516157420255325
+
+### 47. Lavage Brill’o Mably
+Rue Jean de la Fontaine, 42300 Mably, France
+
+- Preuve équipement : Photographie du portique POWERJET SANS BROSSE ; témoignage de 2023 et avis Google décrivant le portique sans brossage. Fiche actuelle recoupée ; date de photographie non établie.
+- Source : https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4-Hw8UuBnLoU1kp-r0FTyUV0RxlGzwz_cJb-yCjLf1HAtbswMvyw4xRpiW6Ce1a5NEBD_W7ImVdrXJGG8I5RhEqlp29MNWg00pfap_k4ZH46vPeFPf8xHIapyCODZzOXFGJzol9VL81z_G6qo_yz-oPHRTwO9MN2c2s9C6U2k3gj9h1DZhU-9fQyJGuSB1TCccR2uy-J4RJrs_sJ9yOqnV8sPzjDUNwj2loPWTWHbUl3bVu--PVN_9If4?fife=s16383
+- Source : https://www.blogtesla.fr/forum/viewtopic.php?p=240291
+- Source : https://www.google.com/maps/d/viewer?mid=1rT8HnuCZLPcfynU_kQjNKRPlbxV1qlg
+- Google Maps et position : https://www.google.com/maps?cid=2665182731278813087
+
+### 48. Star Wash Feurs
+VC ZI du Forum, 42110 Feurs, France
+
+- Preuve équipement : Photos Google Maps : panneau des programmes POWERJET et vue Street View datée avril 2026 ; emplacement également recensé sur la carte communautaire.
+- Source : https://www.google.com/maps?cid=17155197921117359502
+- Source : https://www.google.com/maps/d/viewer?mid=1rT8HnuCZLPcfynU_kQjNKRPlbxV1qlg
+- Google Maps et position : https://www.google.com/maps?cid=17155197921117359502
