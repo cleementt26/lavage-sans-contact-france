@@ -205,7 +205,9 @@ function focusStation(id) {
 
 async function loadStations() {
   try {
-    const response = await fetch('stations.json?v=2026-09-23-regional-2');
+    // La liste évolue sans nouvelle compilation ; interroger le JSON actuel
+    // évite de conserver une ancienne réponse en cache après un déploiement Pages.
+    const response = await fetch('stations.json', { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.stations = await response.json();
     const heroStationCount = document.querySelector('#heroStationCount');
