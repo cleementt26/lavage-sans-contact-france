@@ -411,3 +411,15 @@ VC ZI du Forum, 42110 Feurs, France
 - Source : https://www.google.com/maps?cid=17155197921117359502
 - Source : https://www.google.com/maps/d/viewer?mid=1rT8HnuCZLPcfynU_kQjNKRPlbxV1qlg
 - Google Maps et position : https://www.google.com/maps?cid=17155197921117359502
+
+### 49. MOUSS'AUTO Le Mans — Yvré-l'Évêque
+Route de Paris Les Vergnes, 72530 Yvré-l'Évêque, France
+
+- Preuve équipement et ouverture : https://www.guide-lavage.com/index_newA.asp?brevedirect=65269 (24 août 2026, portique haute pression sans contact Heurtaux Airtone)
+- Google Maps et position : https://www.google.com/maps?cid=12909047386996532820
+
+### 50. Speedwash Révolution Château-Thierry
+64 rue Gustave Eiffel, 02400 Château-Thierry, France
+
+- Preuve équipement : https://www.guide-lavage.com/index_newA.asp?brevedirect=64269 (portique hybride Istobal M'Wash 3, deux programmes sans contact et six avec brosses ; choisir le programme sans contact)
+- Google Maps et position : https://www.google.com/maps?cid=15949841213443136951

@@ -666,5 +666,37 @@
     "google_maps_url": "https://www.google.com/maps?cid=17155197921117359502",
     "google_maps_type": "fiche",
     "verification_equipement": "Photos Google Maps : panneau des programmes POWERJET et vue Street View datée avril 2026 ; emplacement également recensé sur la carte communautaire."
+  },
+  {
+    "id": 49,
+    "nom": "MOUSS'AUTO Le Mans — Yvré-l'Évêque",
+    "adresse": "Route de Paris Les Vergnes, 72530 Yvré-l'Évêque, France",
+    "latitude": 48.0115027,
+    "longitude": 0.2800176,
+    "sources": [
+      "https://www.guide-lavage.com/index_newA.asp?brevedirect=65269"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "source_position": "https://www.google.com/maps?cid=12909047386996532820",
+    "google_maps_url": "https://www.google.com/maps?cid=12909047386996532820",
+    "google_maps_type": "fiche",
+    "verification_equipement": "Guide Lavage (24 août 2026) confirme l’ouverture publique et le portique haute pression sans contact Heurtaux Airtone. Fiche Maps active avec adresse et avis mentionnant le portique."
+  },
+  {
+    "id": 50,
+    "nom": "Speedwash Révolution Château-Thierry",
+    "adresse": "64 rue Gustave Eiffel, 02400 Château-Thierry, France",
+    "latitude": 49.0338627,
+    "longitude": 3.3891357,
+    "sources": [
+      "https://www.guide-lavage.com/index_newA.asp?brevedirect=64269"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "source_position": "https://www.google.com/maps?cid=15949841213443136951",
+    "google_maps_url": "https://www.google.com/maps?cid=15949841213443136951",
+    "google_maps_type": "fiche",
+    "verification_equipement": "Portique hybride Istobal M'Wash 3 : deux programmes sans contact et six avec brosses d’après Guide Lavage (24 décembre 2025). Choisir expressément un programme sans contact."
   }
 ]

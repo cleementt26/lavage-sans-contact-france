@@ -36,3 +36,20 @@ Valence Sud (exploitant Dwash), Crémieu, Brill’o Mably et Star Wash Feurs. Ad
 - Les prestataires de detailing et de lavage manuel à domicile sont hors périmètre.
 
 Aucun nouvel établissement répondant au critère strict n’a été confirmé à Cluses, dans le Genevois français, à Aix-en-Provence ou Marseille lors de cette recherche. À Annecy, la piste Pringy mérite une confirmation directe du programme.
+
+## Complément de recherche du 23 septembre 2026
+
+Deux stations supplémentaires ont été retenues hors de la zone prioritaire : MOUSS'AUTO à Yvré-l'Évêque (portique Heurtaux Airtone sans contact, ouvert en 2026) et Speedwash Révolution à Château-Thierry (deux programmes sans contact sur un portique hybride : ne pas choisir les programmes à brosses). Leurs preuves, adresses, coordonnées de leurs fiches Maps et liens directs sont consignés dans `SOURCES.md`.
+
+Pistes écartées ou suspendues après vérification :
+
+| Piste | Résultat du contrôle |
+| --- | --- |
+| Auto Wash 73, Novalaise (73) | Publication de l’exploitant du 7 juillet 2026 annonçant un **rouleau** ; une recherche qui lui associait « POWERJET » mélangeait plusieurs publications. https://www.instagram.com/p/DagLvIKCEdU/ |
+| Lavage des Fontaines, Marnaz (74) | L’exploitant présente deux portiques WashTec SoftCare Pro2 à brosses. https://sg.linkedin.com/company/lavage-des-fontaines |
+| Station Saint-Jeoire-Prieuré (73) | Portique hybride avec ou sans brosses annoncé, mais cycle intégralement sans contact actuel et opérationnel non corroboré. https://www.station-lavage-saint-jeoire-prieure.fr/lavage-automobile/ |
+| Lavage Auto56, Ploërmel (56) | Deux robots POWERJET confirmés à 12 rue des Huloux, mais fiche Google Maps « fermé temporairement » et annonce du propriétaire du 18 septembre 2026 signalant la fermeture depuis début août ; à réévaluer avant ajout. https://www.lavage-auto56.fr/robot-sans-contact-powerjet ; https://www.google.com/maps?cid=805215077300395974 |
+| Intermarché Nevers Hôpital (58) | L’exploitant annonce un robot Airtone sans contact, rue Romain Baron ; fiche Google Maps **propre au portique** et localisation de la piste non identifiées. https://www.facebook.com/intermarchenevershopital/posts/-prenez-soin-de-votre-v%C3%A9hicule-passez-%C3%A0-la-station-de-lavage-de-votre-intermarch/1511343924341631/ |
+| Starwash Prix-lès-Mézières (08) | Deux robots annoncés dans une station **en construction** le 21 août 2026 ; ne pas cartographier avant ouverture. https://www.guide-lavage.com/index_newA.asp?brevedirect=65270 |
+
+Les pages régionales de fabricants vantant un modèle ne prouvent pas son installation dans la ville citée. Un programme sans contact sur un portique hybride n’est retenu que lorsqu’une source nomme explicitement l’établissement et le cycle disponible ; la fiche rappelle alors le choix du programme sans brosses.
