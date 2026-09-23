@@ -1,33 +1,600 @@
 [
-  {"id":1,"nom":"Planet Wash Saint-Étienne-du-Rouvray","adresse":"25 avenue des Canadiens, 76800 Saint-Étienne-du-Rouvray, France","latitude":49.3786,"longitude":1.105},
-  {"id":2,"nom":"Planet Wash Saint-Pierre-lès-Elbeuf","adresse":"130 parc des Bords de Seine, 76320 Saint-Pierre-lès-Elbeuf, France","latitude":49.2768,"longitude":1.0406},
-  {"id":3,"nom":"O'CARS Carwash Colombelles","adresse":"1 rue de l'Avenir, 14460 Colombelles, France","latitude":49.198057,"longitude":-0.292068},
-  {"id":4,"nom":"Excel Wash Saint-Contest","adresse":"Place de la Mairie, 14280 Saint-Contest, France","latitude":49.214,"longitude":-0.401},
-  {"id":5,"nom":"Station de Lavage Caen Louvigny","adresse":"12 rue des Anémones, 14111 Louvigny, France","latitude":49.157917,"longitude":-0.391901},
-  {"id":6,"nom":"Planet Wash Falaise","adresse":"Rue du Chemin Antique, ZA Expansia, 14700 Falaise, France","latitude":48.910213,"longitude":-0.207142},
-  {"id":7,"nom":"Planet Wash Saint-Vigor-le-Grand","adresse":"19 rue de l'Abbaye, 14400 Saint-Vigor-le-Grand, France","latitude":49.277021,"longitude":-0.684213},
-  {"id":8,"nom":"Planet Wash Condé-en-Normandie","adresse":"Rue Saint-Jacques, 14110 Condé-en-Normandie, France","latitude":48.85,"longitude":-0.55},
-  {"id":9,"nom":"Vire Auto Lavage","adresse":"Avenue de Bischwiller, 14500 Vire Normandie, France","latitude":48.856796,"longitude":-0.87189},
-  {"id":10,"nom":"L'Expresso Créances","adresse":"47A rue des Écoles, 50710 Créances, France","latitude":49.202,"longitude":-1.564},
-  {"id":11,"nom":"Planet Wash Villers-Bocage","adresse":"Boulevard du 21e Siècle, ZA La Cour au Marchand, 14310 Villers-Bocage, France","latitude":49.080122,"longitude":-0.642018},
-  {"id":12,"nom":"Pontivy Lavage","adresse":"24 rue Albert-de-Mun, 56300 Pontivy, France","latitude":48.0545,"longitude":-2.9588},
-  {"id":13,"nom":"Cash Lavage Chartres-de-Bretagne","adresse":"6 rue de la Croix aux Potiers, 35131 Chartres-de-Bretagne, France","latitude":48.0467,"longitude":-1.715},
-  {"id":14,"nom":"Super U Nexon","adresse":"44 route de La Meyze, 87800 Nexon, France","latitude":45.665431,"longitude":1.18464},
-  {"id":15,"nom":"Lavage automobile Riom","adresse":"49 rue Grenier, 63200 Riom, France","latitude":45.891,"longitude":3.112},
-  {"id":16,"nom":"Planet Wash Bernières-sur-Mer","adresse":"356 rue Victor-Tesnière, 14990 Bernières-sur-Mer, France","latitude":49.334563,"longitude":-0.419668},
-  {"id":17,"nom":"Planet Wash Dreux","adresse":"Rue Henri-Dunant, 28100 Dreux, France","latitude":48.7366,"longitude":1.3854},
-  {"id":18,"nom":"Thomas Wash Meximieux","adresse":"Rue du Séminaire, 01800 Meximieux, France","latitude":45.9052,"longitude":5.1949},
-  {"id":19,"nom":"Super U Savigneux","adresse":"Rue de l'Industrie, 42600 Savigneux, France","latitude":45.607246,"longitude":4.090611},
-  {"id":20,"nom":"Car Wash 43","adresse":"ZI, rue de Chirel, 43000 Le Puy-en-Velay, France","latitude":45.0428,"longitude":3.8829},
-  {"id":21,"nom":"Carrefour Market Cabourg","adresse":"Boulevard Achille-Colin, 14390 Cabourg, France","latitude":49.277904,"longitude":-0.134814},
-  {"id":22,"nom":"Adequ'wash Valognes","adresse":"5 route de la Brique, ZA d'Armanville, 50700 Valognes, France","latitude":49.514272,"longitude":-1.500496},
-  {"id":23,"nom":"Jeniclean Rouen","adresse":"54 rue Jean-Lecanuet, 76000 Rouen, France","latitude":49.44559,"longitude":1.087793},
-  {"id":24,"nom":"Lavage + Saint-Malo","adresse":"55 boulevard des Déportés, 35400 Saint-Malo, France","latitude":48.658467,"longitude":-1.972839},
-  {"id":25,"nom":"Charvaz Auto — Pont-d'Ain","adresse":"2 rue Gabriel-Vicaire, 01160 Pont-d'Ain, France","latitude":46.0527,"longitude":5.336},
-  {"id":26,"nom":"Elite Wash La Glacerie","adresse":"Voie de la Liberté, 50470 Cherbourg-en-Cotentin, France","latitude":49.617361,"longitude":-1.608833},
-  {"id":27,"nom":"E.Leclerc Blaye","adresse":"Zone commerciale Boisredon–La Gruppe, 33390 Cars, France","latitude":45.128651,"longitude":-0.640473},
-  {"id":28,"nom":"Mouss'Auto Trélazé","adresse":"Avenue Pierre-Mendès-France, 49800 Trélazé, France","latitude":47.447642,"longitude":-0.507523},
-  {"id":29,"nom":"Super U Bonsecours","adresse":"2 route de Paris, 76240 Bonsecours, France","latitude":49.417369,"longitude":1.132859},
-  {"id":30,"nom":"Auto Lavage 42 — Mouss'Auto","adresse":"5 boulevard Pierre-Desgranges, 42160 Andrézieux-Bouthéon, France","latitude":45.532311,"longitude":4.2764},
-  {"id":31,"nom":"NVR Lavage","adresse":"187 avenue de la Libération, 42120 Le Coteau, France","latitude":46.018511,"longitude":4.090798}
+  {
+    "id": 1,
+    "nom": "Planet Wash Saint-Étienne-du-Rouvray",
+    "adresse": "25 avenue des Canadiens, 76800 Saint-Étienne-du-Rouvray, France",
+    "latitude": 49.4003578,
+    "longitude": 1.0643857,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "source_position": "https://www.google.com/maps?cid=1638813569420994374",
+    "google_maps_url": "https://www.google.com/maps?cid=1638813569420994374",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 2,
+    "nom": "Planet Wash Saint-Pierre-lès-Elbeuf",
+    "adresse": "130 parc des Bords de Seine, 76320 Saint-Pierre-lès-Elbeuf, France",
+    "latitude": 49.2895093,
+    "longitude": 1.0386058,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=7661596421265264805",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=7661596421265264805"
+  },
+  {
+    "id": 3,
+    "nom": "O'CARS Carwash Colombelles",
+    "adresse": "1 rue de l'Avenir, 14460 Colombelles, France",
+    "latitude": 49.198057,
+    "longitude": -0.292068,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=1+rue+de+l%27Avenir%2C+14460+Colombelles&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=O%27CARS%20Carwash%20Colombelles%201%20rue%20de%20l%27Avenir%2C%2014460%20Colombelles%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 4,
+    "nom": "Excel Wash Saint-Contest",
+    "adresse": "3 route de Rosel, 14280 Saint-Contest",
+    "latitude": 49.201269,
+    "longitude": -0.4003368,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "source_position": "https://www.google.com/maps?cid=12694764043827225373",
+    "google_maps_url": "https://www.google.com/maps?cid=12694764043827225373",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 6,
+    "nom": "O’Cars Falaise (anciennement Planet Wash)",
+    "adresse": "Zone Expansia, boulevard du Pays de Falaise, 14700 Falaise",
+    "latitude": 48.9102401,
+    "longitude": -0.2071799,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=16655073465109026345",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=16655073465109026345"
+  },
+  {
+    "id": 7,
+    "nom": "Planet Wash Saint-Vigor-le-Grand",
+    "adresse": "19 rue de l'Abbaye, 14400 Saint-Vigor-le-Grand, France",
+    "latitude": 49.2769851,
+    "longitude": -0.6841049,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=15170547007593299674",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=15170547007593299674"
+  },
+  {
+    "id": 8,
+    "nom": "Planet Wash Condé-en-Normandie",
+    "adresse": "Rue Saint-Jacques, 14110 Condé-en-Normandie, France",
+    "latitude": 48.8559372,
+    "longitude": -0.538828,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=7707076951039841609",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=7707076951039841609"
+  },
+  {
+    "id": 9,
+    "nom": "Vire Auto Lavage",
+    "adresse": "Avenue de Bischwiller, 14500 Vire Normandie, France",
+    "latitude": 48.856796,
+    "longitude": -0.87189,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vire%20Auto%20Lavage%20Avenue%20de%20Bischwiller%2C%2014500%20Vire%20Normandie%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 10,
+    "nom": "L'Expresso Créances",
+    "adresse": "47A rue des Écoles, 50710 Créances, France",
+    "latitude": 49.201674,
+    "longitude": -1.564133,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=47A+rue+des+%C3%89coles%2C+50710+Cr%C3%A9ances&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=L%27Expresso%20Cr%C3%A9ances%2047A%20rue%20des%20%C3%89coles%2C%2050710%20Cr%C3%A9ances%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 11,
+    "nom": "Planet Wash Villers-Bocage",
+    "adresse": "36 boulevard du 21e Siècle, 14310 Villers-Bocage, France",
+    "latitude": 49.0800884,
+    "longitude": -0.6420461,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=2871850065221760498",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=2871850065221760498"
+  },
+  {
+    "id": 12,
+    "nom": "Pontivy Lavage",
+    "adresse": "24 rue Albert-de-Mun, 56300 Pontivy, France",
+    "latitude": 48.0570411,
+    "longitude": -2.9620697,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "source_position": "https://www.google.com/maps?cid=12664780249785819954",
+    "google_maps_url": "https://www.google.com/maps?cid=12664780249785819954",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 13,
+    "nom": "Cash Lavage Chartres-de-Bretagne",
+    "adresse": "11 rue André Citroën, 35131 Chartres-de-Bretagne",
+    "latitude": 48.0467317,
+    "longitude": -1.7134789,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=745887356542712016",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=745887356542712016"
+  },
+  {
+    "id": 14,
+    "nom": "Super U Nexon",
+    "adresse": "44 route de La Meyze, 87800 Nexon, France",
+    "latitude": 45.665166,
+    "longitude": 1.185134,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=44+route+de+La+Meyze%2C+87800+Nexon&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Super%20U%20Nexon%2044%20route%20de%20La%20Meyze%2C%2087800%20Nexon%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 16,
+    "nom": "Planet Wash Bernières-sur-Mer",
+    "adresse": "265 voie du Débarquement, 14990 Bernières-sur-Mer",
+    "latitude": 49.3339293,
+    "longitude": -0.4181898,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=14284192172186477793",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=14284192172186477793"
+  },
+  {
+    "id": 17,
+    "nom": "Planet Wash Dreux",
+    "adresse": "18 rue Henri Dunant, 28100 Dreux",
+    "latitude": 48.7361644,
+    "longitude": 1.3856187,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=16648523409157959390",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=16648523409157959390"
+  },
+  {
+    "id": 19,
+    "nom": "Super U Savigneux",
+    "adresse": "Rue de l'Industrie, 42600 Savigneux, France",
+    "latitude": 45.607246,
+    "longitude": 4.090611,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Super%20U%20Savigneux%20Rue%20de%20l%27Industrie%2C%2042600%20Savigneux%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 21,
+    "nom": "Carrefour Market Cabourg",
+    "adresse": "Boulevard Achille-Colin, 14390 Cabourg, France",
+    "latitude": 49.277904,
+    "longitude": -0.134814,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Carrefour%20Market%20Cabourg%20Boulevard%20Achille-Colin%2C%2014390%20Cabourg%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 22,
+    "nom": "Adequ'wash Valognes",
+    "adresse": "5 route de la Brique, ZA d'Armanville, 50700 Valognes, France",
+    "latitude": 49.514272,
+    "longitude": -1.500496,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Adequ%27wash%20Valognes%205%20route%20de%20la%20Brique%2C%20ZA%20d%27Armanville%2C%2050700%20Valognes%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 23,
+    "nom": "Jeniclean Rouen",
+    "adresse": "54 rue Jean-Lecanuet, 76000 Rouen, France",
+    "latitude": 49.445493,
+    "longitude": 1.088041,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=54+rue+Jean-Lecanuet%2C+76000+Rouen&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jeniclean%20Rouen%2054%20rue%20Jean-Lecanuet%2C%2076000%20Rouen%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 24,
+    "nom": "Lavage + Saint-Malo",
+    "adresse": "55 boulevard des Déportés, 35400 Saint-Malo, France",
+    "latitude": 48.658078,
+    "longitude": -1.972363,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=55+boulevard+des+D%C3%A9port%C3%A9s%2C+35400+Saint-Malo&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Lavage%20%2B%20Saint-Malo%2055%20boulevard%20des%20D%C3%A9port%C3%A9s%2C%2035400%20Saint-Malo%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 25,
+    "nom": "Charvaz Auto — Pont-d'Ain",
+    "adresse": "2 rue Gabriel-Vicaire, 01160 Pont-d'Ain, France",
+    "latitude": 46.04552,
+    "longitude": 5.336323,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=2+rue+Gabriel-Vicaire%2C+01160+Pont-d%27Ain&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Charvaz%20Auto%20%E2%80%94%20Pont-d%27Ain%202%20rue%20Gabriel-Vicaire%2C%2001160%20Pont-d%27Ain%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 26,
+    "nom": "Elite Wash La Glacerie",
+    "adresse": "Voie de la Liberté, 50470 Cherbourg-en-Cotentin, France",
+    "latitude": 49.617361,
+    "longitude": -1.608833,
+    "sources": [
+      "https://360-wash.fr/nos-realisations",
+      "https://elitewashcherbourg.fr/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Coordonnées publiées par l’exploitant.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elite%20Wash%20La%20Glacerie%20Voie%20de%20la%20Libert%C3%A9%2C%2050470%20Cherbourg-en-Cotentin%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 27,
+    "nom": "E.Leclerc Blaye",
+    "adresse": "Zone commerciale Boisredon–La Gruppe, 33390 Cars, France",
+    "latitude": 45.128651,
+    "longitude": -0.640473,
+    "sources": [
+      "https://360-wash.fr/nos-realisations"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=E.Leclerc%20Blaye%20Zone%20commerciale%20Boisredon%E2%80%93La%20Gruppe%2C%2033390%20Cars%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 28,
+    "nom": "Mouss'Auto Trélazé",
+    "adresse": "185 avenue Pierre Mendès France, 49800 Trélazé",
+    "latitude": 47.447851,
+    "longitude": -0.508071,
+    "sources": [
+      "https://www.instagram.com/reel/DbNxe14NLUz/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=185+avenue+Pierre+Mend%C3%A8s+France%2C+49800+Tr%C3%A9laz%C3%A9&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mouss%27Auto%20Tr%C3%A9laz%C3%A9%20185%20avenue%20Pierre%20Mend%C3%A8s%20France%2C%2049800%20Tr%C3%A9laz%C3%A9",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 29,
+    "nom": "Super U Bonsecours",
+    "adresse": "rue Étienne Achavanne, 76240 Bonsecours",
+    "latitude": 49.417369,
+    "longitude": 1.132859,
+    "sources": [
+      "https://www.instagram.com/reel/Da5u35BNGaE/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Emplacement issu du recensement fabricant ; précision à confirmer.",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Super%20U%20Bonsecours%20rue%20%C3%89tienne%20Achavanne%2C%2076240%20Bonsecours",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 30,
+    "nom": "Auto Lavage 42 — Mouss'Auto",
+    "adresse": "5 boulevard Pierre-Desgranges, 42160 Andrézieux-Bouthéon, France",
+    "latitude": 45.532311,
+    "longitude": 4.2764,
+    "sources": [
+      "https://autolavage42.fr/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=5+boulevard+Pierre-Desgranges%2C+42160+Andr%C3%A9zieux-Bouth%C3%A9on&limit=1",
+    "google_maps_url": "https://www.google.com/maps?cid=11415303725920813094",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 31,
+    "nom": "NVR Lavage",
+    "adresse": "187 avenue de la Libération, 42120 Le Coteau, France",
+    "latitude": 46.018511,
+    "longitude": 4.090798,
+    "sources": [
+      "https://www.facebook.com/nvrlavage/",
+      "https://www.pappers.fr/entreprise/nvr-lavage-913723466"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "source_position": "https://data.geopf.fr/geocodage/search?q=187+avenue+de+la+Lib%C3%A9ration%2C+42120+Le+Coteau&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=NVR%20Lavage%20187%20avenue%20de%20la%20Lib%C3%A9ration%2C%2042120%20Le%20Coteau%2C%20France",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 32,
+    "nom": "Green Water",
+    "adresse": "340 rue des Sources, 38920 Crolles",
+    "sources": [
+      "https://www.greenwater.cleaning/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "longitude": 5.8910335,
+    "latitude": 45.272695,
+    "source_position": "https://www.google.com/maps?cid=5379024662710335822",
+    "google_maps_url": "https://www.google.com/maps?cid=5379024662710335822",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 33,
+    "nom": "Lav Car Yèbles",
+    "adresse": "2 rue de la Fraternité, 77390 Yèbles",
+    "sources": [
+      "https://www.briedesrivieresetchateaux.fr/commerce-et-service/lav-car-yebles/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "longitude": 2.7812188,
+    "latitude": 48.6371114,
+    "source_position": "https://www.google.com/maps?cid=3388372512758604500",
+    "google_maps_url": "https://www.google.com/maps?cid=3388372512758604500",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 34,
+    "nom": "Mouss’Auto Mornant",
+    "adresse": "526 rue du Capitaine François Garbit, 69440 Mornant",
+    "sources": [
+      "https://www.fcaesthetiqueautomobile.fr/lien-station+de+lavage+mornant+mouss+auto-416"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": 4.704747,
+    "latitude": 45.616301,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=526+rue+du+Capitaine+Fran%C3%A7ois+Garbit%2C+69440+Mornant&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mouss%E2%80%99Auto%20Mornant%20526%20rue%20du%20Capitaine%20Fran%C3%A7ois%20Garbit%2C%2069440%20Mornant&query_place_id=ChIJ-U-rfU3l9EcRyDN2UytgkTc",
+    "google_maps_type": "fiche",
+    "google_place_id": "ChIJ-U-rfU3l9EcRyDN2UytgkTc",
+    "source_fiche": "https://motogarage.space/garage/ChIJ-U-rfU3l9EcRyDN2UytgkTc"
+  },
+  {
+    "id": 35,
+    "nom": "CDI Wash",
+    "adresse": "5 Zone Artisanale, 50270 Les Moitiers-d’Allonne",
+    "sources": [
+      "https://cdi-wash.fr/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": -1.78329,
+    "latitude": 49.406397,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=5+Zone+Artisanale%2C+50270+Les+Moitiers-d%E2%80%99Allonne&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=CDI%20Wash%205%20Zone%20Artisanale%2C%2050270%20Les%20Moitiers-d%E2%80%99Allonne",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 36,
+    "nom": "Atlantic Lavage Niort",
+    "adresse": "46 rue Irène Joliot-Curie, 79000 Niort",
+    "sources": [
+      "https://atlanticlavage.net/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": -0.420824,
+    "latitude": 46.318402,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=46+rue+Ir%C3%A8ne+Joliot-Curie%2C+79000+Niort&limit=1",
+    "google_maps_url": "https://www.google.com/maps?cid=1110560557941876864",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 37,
+    "nom": "Atlantic Lavage Bessines",
+    "adresse": "26 rue des Charmes, 79000 Bessines",
+    "sources": [
+      "https://atlanticlavage.net/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": -0.493337,
+    "latitude": 46.301798,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=26+rue+des+Charmes%2C+79000+Bessines&limit=1",
+    "google_maps_url": "https://www.google.com/maps?cid=9562915514436822092",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 38,
+    "nom": "Mouss’Auto Market",
+    "adresse": "234 chemin du Barret, 13160 Châteaurenard",
+    "sources": [
+      "https://moussautomarket.com/nettoyage-automatique/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "longitude": 4.8420609,
+    "latitude": 43.8874566,
+    "source_position": "https://www.google.com/maps?cid=16891256249967977318",
+    "google_maps_url": "https://www.google.com/maps?cid=16891256249967977318",
+    "google_maps_type": "fiche"
+  },
+  {
+    "id": 39,
+    "nom": "Ghigo Automobiles",
+    "adresse": "399 avenue Pierre et Marie Curie, 83160 La Valette-du-Var",
+    "sources": [
+      "https://www.ghigo-automobiles.fr/station-de-lavage"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": 5.99833,
+    "latitude": 43.135636,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=399+avenue+Pierre+et+Marie+Curie%2C+83160+La+Valette-du-Var&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ghigo%20Automobiles%20399%20avenue%20Pierre%20et%20Marie%20Curie%2C%2083160%20La%20Valette-du-Var",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 40,
+    "nom": "Garage Turpin",
+    "adresse": "22 rue du Poirier de Fromie, 77690 Montigny-sur-Loing",
+    "sources": [
+      "https://www.garageturpin.fr/station-de-lavage/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": 2.732316,
+    "latitude": 48.335631,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=22+rue+du+Poirier+de+Fromie%2C+77690+Montigny-sur-Loing&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Garage%20Turpin%2022%20rue%20du%20Poirier%20de%20Fromie%2C%2077690%20Montigny-sur-Loing",
+    "google_maps_type": "recherche",
+    "note": "L’exploitant annonce un remplacement du portique en novembre 2026 ; technologie à recontrôler après cette date."
+  },
+  {
+    "id": 41,
+    "nom": "NETT Auto 47",
+    "adresse": "120 route de Bordeaux, 47400 Fauillet",
+    "sources": [
+      "https://www.pagesjaunes.fr/pros/56361948"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": 0.296572,
+    "latitude": 44.406238,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=120+route+de+Bordeaux%2C+47400+Fauillet&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=NETT%20Auto%2047%20120%20route%20de%20Bordeaux%2C%2047400%20Fauillet",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 42,
+    "nom": "Mouss’Auto Villaines-la-Juhel",
+    "adresse": "22 bis boulevard Henri Dunant, 53700 Villaines-la-Juhel",
+    "sources": [
+      "https://fr.linkedin.com/posts/stations-et-centres-de-lavage-heurtaux_stationdelavage-airtone-conceptionstation-activity-7199694852572200962-2apw"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "google_maps_url": "https://www.google.com/maps?cid=4585980872664307787",
+    "google_maps_type": "fiche",
+    "latitude": 48.3403159,
+    "longitude": -0.2730974,
+    "source_position": "https://www.google.com/maps?cid=4585980872664307787"
+  },
+  {
+    "id": 43,
+    "nom": "Mouss’Auto Barbezieux",
+    "adresse": "29 avenue de la Vergne, 16300 Barbezieux-Saint-Hilaire",
+    "sources": [
+      "https://www.pagesjaunes.fr/pros/54796528"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Adresse géocodée (BAN/IGN) ; entrée de la piste non vérifiée.",
+    "longitude": -0.163021,
+    "latitude": 45.477244,
+    "source_position": "https://data.geopf.fr/geocodage/search?q=29+avenue+de+la+Vergne%2C+16300+Barbezieux-Saint-Hilaire&limit=1",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mouss%E2%80%99Auto%20Barbezieux%2029%20avenue%20de%20la%20Vergne%2C%2016300%20Barbezieux-Saint-Hilaire",
+    "google_maps_type": "recherche"
+  },
+  {
+    "id": 44,
+    "nom": "Star Wash Verton",
+    "adresse": "Avenue de la Sucrerie, 62180 Verton, France",
+    "sources": [
+      "https://www.starwashverton.fr/"
+    ],
+    "date_controle": "2026-09-23",
+    "precision_position": "Position de la fiche Google Maps de l’établissement.",
+    "latitude": 50.4099921,
+    "longitude": 1.6527438,
+    "google_maps_url": "https://www.google.com/maps?cid=1752178233839924644",
+    "google_maps_type": "fiche",
+    "source_position": "https://www.google.com/maps?cid=1752178233839924644"
+  }
 ]

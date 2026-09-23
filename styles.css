@@ -275,3 +275,9 @@ dialog a { color: var(--blue); font-weight: 750; font-size: 13px; }
   .brand small { display: none; }
   .panel { height: 86dvh; }
 }
+
+/* Source and Maps links remain finger-sized on mobile. */
+.station-links {display:flex;flex-wrap:wrap;gap:4px 12px;margin:8px 0;}
+.station-links a {display:inline-flex;align-items:center;min-height:44px;color:var(--blue-dark);font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.position-note {display:block;color:var(--muted);font-size:10px;line-height:1.4;margin:5px 0 10px;}
+.selection-card {max-height:calc(100% - 100px);overflow:auto;}

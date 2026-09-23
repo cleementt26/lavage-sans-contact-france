@@ -77,17 +77,28 @@ function stationDistance(station) {
   return Infinity;
 }
 
+// A business profile is distinct from a name/address search fallback.
+function mapsLabel(station) {
+  return station.google_maps_type === 'fiche' ? 'Fiche Google Maps ↗' : 'Rechercher sur Google Maps ↗';
+}
+function stationMapsUrl(station) {
+  return station.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(station.nom + ' ' + station.adresse)}`;
+}
+function stationLinks(station) {
+  return `<div class="station-links"><a href="${escapeHtml(stationMapsUrl(station))}" target="_blank" rel="noopener noreferrer">${mapsLabel(station)}</a><a href="${escapeHtml(station.sources[0])}" target="_blank" rel="noopener noreferrer">Source du sans-contact ↗</a></div><small class="position-note">${escapeHtml(station.precision_position || '')}${station.note ? ' ' + escapeHtml(station.note) : ''}</small>`;
+}
+
 function popupHtml(station) {
   const km = stationDistance(station);
   const meta = Number.isFinite(km) ? `<strong>${routeFilter.checked ? 'À ' : ''}${distanceLabel(km)}${routeFilter.checked ? ' du trajet' : ''}</strong>` : '<strong>100 % sans contact</strong>';
-  return `<span class="popup-tag">Robot haute pression</span><h3 class="popup-title">${escapeHtml(station.nom)}</h3><p class="popup-address">${escapeHtml(station.adresse)}</p><div class="popup-meta">${meta}<button class="directions-trigger" type="button" data-route-station="${station.id}">Itinéraire →</button></div>`;
+  return `<span class="popup-tag">Robot haute pression</span><h3 class="popup-title">${escapeHtml(station.nom)}</h3><p class="popup-address">${escapeHtml(station.adresse)}</p>${stationLinks(station)}<div class="popup-meta">${meta}<button class="directions-trigger" type="button" data-route-station="${station.id}">Itinéraire →</button></div>`;
 }
 
 function openDirections(station) {
   if (!station) return;
   const destination = `${station.latitude},${station.longitude}`;
   $('#directionsStationName').textContent = station.nom;
-  $('#googleMapsLink').href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+  $('#googleMapsLink').href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(station.nom + ' ' + station.adresse)}&travelmode=driving${station.google_place_id ? '&destination_place_id=' + encodeURIComponent(station.google_place_id) : ''}`;
   $('#wazeLink').href = `https://www.waze.com/ul?ll=${encodeURIComponent(destination)}&navigate=yes`;
   $('#appleMapsLink').href = `https://maps.apple.com/?daddr=${encodeURIComponent(destination)}&dirflg=d`;
   const dialog = $('#directionsDialog');
@@ -118,7 +129,7 @@ function renderStations() {
   count.textContent = stations.length;
   const stationCountLabel = `${stations.length} station${stations.length > 1 ? 's' : ''}`;
   $('#mobileCount').textContent = stationCountLabel;
-  $('#mobileSheetCount').textContent = `${stationCountLabel} vérifiée${stations.length > 1 ? 's' : ''}`;
+  $('#mobileSheetCount').textContent = `${stationCountLabel} documentée${stations.length > 1 ? 's' : ''}`;
   stationList.innerHTML = stations.length ? stations.map((station) => `
     <button class="station-item" type="button" data-id="${station.id}">
       <span class="station-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17h16M6 17l1-7h10l1 7M8 10l1-3h6l1 3M7 14h.01M17 14h.01"/></svg></span>
@@ -169,6 +180,7 @@ function selectStation(id, scrollToItem = true) {
   const distance = stationDistance(station);
   $('#selectionName').textContent = station.nom;
   $('#selectionAddress').textContent = station.adresse;
+  $('#selectionLinks').innerHTML = stationLinks(station);
   $('#selectionDistance').textContent = Number.isFinite(distance)
     ? `${distanceLabel(distance)}${routeFilter.checked ? ' du trajet' : ''}`
     : '100 % sans contact';
@@ -196,7 +208,7 @@ function focusStation(id) {
 
 async function loadStations() {
   try {
-    const response = await fetch('stations.json?v=2026-09-22-rhone-alpes-1');
+    const response = await fetch('stations.json?v=2026-09-23-audit-1');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.stations = await response.json();
     const heroStationCount = document.querySelector('#heroStationCount');

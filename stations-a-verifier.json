@@ -1,0 +1,34 @@
+[
+  {
+    "id": 5,
+    "nom": "Station de Lavage Caen Louvigny",
+    "adresse": "12 rue des Anémones, 14111 Louvigny, France",
+    "latitude": 49.157917,
+    "longitude": -0.391901,
+    "motif": "Adresse historique et site actuel contradictoires; présence actuelle du robot à établir."
+  },
+  {
+    "id": 15,
+    "nom": "Lavage automobile Riom",
+    "adresse": "49 rue Grenier, 63200 Riom, France",
+    "latitude": 45.891,
+    "longitude": 3.112,
+    "motif": "Le fabricant mentionne Riom, mais identité et adresse exacte du centre non corroborées."
+  },
+  {
+    "id": 18,
+    "nom": "Thomas Wash Meximieux",
+    "adresse": "Rue du Séminaire, 01800 Meximieux, France",
+    "latitude": 45.9052,
+    "longitude": 5.1949,
+    "motif": "La fiche Google Thomas Wash est à une autre adresse; rattachement au robot de Meximieux non établi."
+  },
+  {
+    "id": 20,
+    "nom": "Car Wash 43",
+    "adresse": "rue de Chirel, 43750 Vals-près-le-Puy",
+    "latitude": 45.0428,
+    "longitude": 3.8829,
+    "motif": "Adresse et commune contradictoires; emplacement actuel du portique à établir."
+  }
+]

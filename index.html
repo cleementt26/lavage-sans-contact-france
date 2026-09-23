@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJb+8eoEpsnXxVJzZ1nYmxL7d9w=" crossorigin="">
-  <link rel="stylesheet" href="styles.css?v=visual-refresh-1">
+  <link rel="stylesheet" href="styles.css?v=audit-20260923-1">
 </head>
 <body>
   <div class="app-shell">
@@ -21,7 +21,7 @@
         <span><strong>Sans Contact</strong><small>Lavage auto sans brosses</small></span>
       </a>
       <div class="header-actions">
-        <span class="verified"><i></i> Données vérifiées · 22 sept. 2026</span>
+        <span class="verified"><i></i> Sources contrôlées · 23 sept. 2026</span>
         <button class="icon-button" id="locateButton" type="button" title="Me localiser" aria-label="Me localiser">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
         </button>
@@ -34,7 +34,7 @@
           <span class="sheet-handle" aria-hidden="true"></span>
           <div>
             <strong>Recherche & itinéraire</strong>
-            <small id="mobileSheetCount">Stations vérifiées</small>
+            <small id="mobileSheetCount">Stations documentées</small>
           </div>
           <button class="mobile-sheet-close" id="mobilePanelClose" type="button" aria-label="Fermer et revenir à la carte">×</button>
         </div>
@@ -44,7 +44,7 @@
             <h1>Trouvez un lavage<br><em>vraiment</em> sans contact.</h1>
             <p>Des robots haute pression automatiques, sans rouleaux ni brosses.</p>
             <div class="hero-facts" aria-label="Informations sur la carte">
-              <span><strong id="heroStationCount">31</strong> stations vérifiées</span>
+              <span><strong id="heroStationCount">40</strong> stations documentées</span>
               <span><strong>100 %</strong> sans brosses</span>
             </div>
           </section>
@@ -125,13 +125,14 @@
 
       <section class="map-wrap" aria-label="Carte des stations">
         <div id="map"></div>
-        <div class="map-legend" aria-hidden="true"><i></i><span>Station vérifiée</span></div>
+        <div class="map-legend" aria-hidden="true"><i></i><span>Station documentée</span></div>
         <div class="map-status" id="mapStatus" role="status">Chargement des stations…</div>
         <article class="selection-card" id="selectionCard" aria-live="polite" hidden>
           <button class="selection-close" id="selectionClose" type="button" aria-label="Fermer la fiche de la station">×</button>
           <span class="selection-tag">Station sélectionnée</span>
           <strong id="selectionName"></strong>
           <p id="selectionAddress"></p>
+          <div id="selectionLinks"></div>
           <div class="selection-actions">
             <span id="selectionDistance">100 % sans contact</span>
             <button id="selectionDirections" class="directions-trigger" type="button">Itinéraire →</button>
@@ -153,7 +154,7 @@
     <span class="eyebrow">Transparence</span>
     <h2>Méthode & limites</h2>
     <p>La carte recense uniquement des équipements automatiques dont le fonctionnement sans contact a pu être confirmé publiquement. Une station peut aussi proposer, à côté, des rouleaux ou des pistes manuelles.</p>
-    <p>Il n’existe pas de registre national officiel de cette technologie : la liste est donc une base vérifiée, pas une garantie d’exhaustivité absolue. Avant un long détour, vérifiez l’accès et la disponibilité auprès de l’exploitant.</p>
+    <p>Il n’existe pas de registre national officiel de cette technologie : la liste est donc une base documentée, pas une garantie d’exhaustivité absolue. Avant un long détour, vérifiez l’accès et la disponibilité auprès de l’exploitant.</p>
     <p>Le filtre mesure la distance géométrique entre la station et le tracé routier. Il ne calcule pas le détour routier aller-retour réel.</p>
     <a href="SOURCES.md" target="_blank" rel="noopener">Consulter le registre des sources →</a>
   </dialog>
@@ -177,6 +178,6 @@
   </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="app.js?v=visual-refresh-1" defer></script>
+  <script src="app.js?v=audit-20260923-1" defer></script>
 </body>
 </html>
